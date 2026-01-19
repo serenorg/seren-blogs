@@ -147,13 +147,13 @@ curl -fsSL https://serendb.com/install.sh | bash
 ├─────────────────────────────────────────────────────────────────────────────┤
 │                                                                             │
 │    ┌─────────────────────────┐    ┌─────────────────────────┐              │
-│    │   OAUTH (DEFAULT)       │    │   PREPAID CREDITS       │              │
+│    │   OAUTH (DEFAULT)       │    │   X402 PAYMENTS         │              │
 │    │                         │    │                         │              │
-│    │  • Browser popup        │    │  • API key auth         │              │
-│    │  • Sign in once         │    │  • Pay in advance       │              │
-│    │  • Auto-refresh tokens  │    │  • No browser needed    │              │
+│    │  • Browser popup        │    │  • On-chain signatures  │              │
+│    │  • Sign in once         │    │  • Pay per request      │              │
+│    │  • Auto-refresh tokens  │    │  • No account needed    │              │
 │    │                         │    │                         │              │
-│    │  ZERO CONFIGURATION     │    │  PROGRAMMATIC ACCESS    │              │
+│    │  ZERO CONFIGURATION     │    │  FULLY PERMISSIONLESS   │              │
 │    └─────────────────────────┘    └─────────────────────────┘              │
 │                                                                             │
 └─────────────────────────────────────────────────────────────────────────────┘
