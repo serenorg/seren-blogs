@@ -1,6 +1,6 @@
 # Show HN: How We Deployed MCP-to-MCP Communications in Seren's MCP Server
 
-*Publishers can now connect their MCP servers directly to Seren—no REST APIs, no webhook plumbing, just native MCP protocol with pay-per-call built in.*
+*Publishers can now connect their MCP servers directly to [Seren](https://serendb.com)—no REST APIs, no webhook plumbing, just native MCP protocol with pay-per-call built in.*
 
 ---
 
@@ -191,6 +191,7 @@ For agents, MCP publishers appear alongside our database and API publishers. Cal
 
 ## Get Started
 
+- **What is Seren?** [serendb.com](https://serendb.com)
 - **MCP Publisher Guide:** [docs.serendb.com/guides/mcp-publishers](https://docs.serendb.com/guides/mcp-publishers.html)
 - **Full API Docs:** [docs.serendb.com](https://docs.serendb.com)
 - **Sign Up Free:** [console.serendb.com](https://console.serendb.com)
@@ -213,7 +214,7 @@ Questions? Drop them in comments or join our [Discord](https://discord.gg/jseg7q
 ║              MCP-to-MCP: Native Protocol, Built-in Payments                  ║
 ║                                                                              ║
 ║     ┌──────────────────────────────────────────────────────────────────┐    ║
-║     │  docs.serendb.com  •  console.serendb.com  •  mcp.serendb.com   │    ║
+║     │  serendb.com  •  docs.serendb.com  •  console.serendb.com       │    ║
 ║     └──────────────────────────────────────────────────────────────────┘    ║
 ║                                                                              ║
 ║                  hello@serendb.com | discord.gg/jseg7q4KS7                   ║
