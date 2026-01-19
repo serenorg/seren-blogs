@@ -178,36 +178,43 @@ No API keys to copy. Authentication is automatic.
 
 Let's see Seren MCP in action with a developer-focused use case. The **Crates.io Publisher** lets your AI agent query the Rust package registry directly.
 
-**Scenario:** You're building a Rust project and need to find async runtime crates with their download stats.
+**Scenario:** You need to find the most downloaded Rust crates for a dependency analysis.
 
-**Without Seren:** You'd manually browse crates.io, copy-paste data, or write a custom scraper.
+**Without Seren:** You'd manually browse crates.io, copy-paste data, or write a custom API client.
 
 **With Seren:** Just ask your AI assistant:
 
 ```
-"Find the top 5 async runtime crates on crates.io with their download counts"
+"Find the top 10 most downloaded crates on crates.io"
 ```
 
-Your AI agent calls the Crates.io publisher:
+Your AI agent calls the Crates.io publisher via `execute_paid_api`:
 
 ```json
 {
-  "publisher_slug": "crates-io",
-  "query": "SELECT name, downloads, description FROM crates WHERE keywords LIKE '%async%' AND keywords LIKE '%runtime%' ORDER BY downloads DESC LIMIT 5"
+  "publisher": "crates-io",
+  "method": "GET",
+  "path": "/crates?sort=downloads&per_page=10",
+  "headers": {"User-Agent": "my-agent (contact@example.com)"}
 }
 ```
 
-**Result:** Instant data, structured and ready to use:
+**Result:** Live data from crates.io (as of January 19, 2026):
 
-| Crate | Downloads | Description |
-|-------|-----------|-------------|
-| tokio | 245M | Event-driven async runtime |
-| async-std | 52M | Async standard library |
-| smol | 18M | Small async runtime |
-| actix-rt | 41M | Actix actor runtime |
-| monoio | 2M | io_uring-based runtime |
+| Crate       | Downloads    | Description                                |
+| ----------- | ------------ | ------------------------------------------ |
+| syn         | 1.30B        | Parser for Rust source code                |
+| hashbrown   | 1.10B        | Google's SwissTable hash map port          |
+| bitflags    | 978M         | Macro to generate bitflag structures       |
+| proc-macro2 | 896M         | Substitute for compiler's proc_macro API   |
+| libc        | 877M         | Raw FFI bindings to platform libraries     |
+| quote       | 877M         | Quasi-quoting macro quote!(...)            |
+| base64      | 875M         | Base64 encoding/decoding                   |
+| getrandom   | 861M         | Cross-platform random data from system     |
+| rand_core   | 852M         | Core RNG traits and tools                  |
+| rand        | 835M         | Random number generators                   |
 
-Cost: ~$0.001 per query. No API key setup. No rate limit headaches.
+**Cost:** $0.00 (free tier). **Execution time:** 97ms. **No API key required.**
 
 ---
 
