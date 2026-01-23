@@ -1,37 +1,14 @@
+---
+og_image: images/attio_autonomous_pipeline_header.jpg
+---
+
 # How AI Agents Can Now Manage Your CRM: Introducing Attio on Seren MCP
 
 *Your AI agent can now source prospects from Crunchbase and Apollo, enrich them with company intelligence, and automatically populate your Attio CRM—all through [Seren MCP](https://serendb.com).*
 
 ---
 
-```
-╔══════════════════════════════════════════════════════════════════════════════╗
-║                                                                              ║
-║                    THE AUTONOMOUS SALES PIPELINE                             ║
-║                                                                              ║
-║     ┌──────────────┐    ┌──────────────┐    ┌──────────────┐                ║
-║     │  CRUNCHBASE  │    │    APOLLO    │    │   FIRECRAWL  │                ║
-║     │  Companies   │    │   Contacts   │    │  Web Intel   │                ║
-║     └──────┬───────┘    └──────┬───────┘    └──────┬───────┘                ║
-║            │                   │                   │                         ║
-║            └─────────┬─────────┴─────────┬─────────┘                         ║
-║                      │                   │                                   ║
-║                      ▼                   ▼                                   ║
-║               ┌─────────────────────────────────┐                            ║
-║               │         SEREN MCP SERVER        │                            ║
-║               │     Orchestration + Billing     │                            ║
-║               └─────────────────┬───────────────┘                            ║
-║                                 │                                            ║
-║                                 ▼                                            ║
-║               ┌─────────────────────────────────┐                            ║
-║               │           ATTIO CRM             │                            ║
-║               │    Contacts • Companies • Deals │                            ║
-║               └─────────────────────────────────┘                            ║
-║                                                                              ║
-║         YOUR AGENT BUILDS YOUR PIPELINE WHILE YOU SLEEP                      ║
-║                                                                              ║
-╚══════════════════════════════════════════════════════════════════════════════╝
-```
+![The Autonomous Sales Pipeline](images/attio_autonomous_pipeline_header.jpg)
 
 ## The CRM Problem AI Agents Can Finally Solve
 
@@ -156,27 +133,12 @@ The sales team now spends their time on outreach and closing, not research and d
 
 Attio on Seren MCP uses OAuth for secure, per-user authentication. Here's the architecture:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                        ATTIO + SEREN INTEGRATION                            │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│   ┌──────────────┐         ┌──────────────────┐         ┌──────────────┐   │
-│   │              │   MCP   │                  │  OAuth  │              │   │
-│   │  YOUR AGENT  │ ──────▶ │   SEREN GATEWAY  │ ──────▶ │    ATTIO     │   │
-│   │  (Claude,    │         │                  │         │    API v2    │   │
-│   │   Cursor)    │ ◀────── │  • Auth          │ ◀────── │              │   │
-│   │              │         │  • Billing       │         │  Your Data   │   │
-│   └──────────────┘         │  • Rate Limiting │         └──────────────┘   │
-│                            └──────────────────┘                             │
-│                                                                             │
-│   PRICING:                                                                  │
-│   • GET operations: $0.0005 per call                                        │
-│   • Write operations: $0.002 per call                                       │
-│   • Billed to your SerenBucks balance                                       │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+![Attio + Seren Integration Architecture](images/attio_seren_architecture.jpg)
+
+**Pricing:**
+- GET operations: $0.0005 per call
+- Write operations: $0.002 per call
+- Billed to your SerenBucks balance
 
 Your agent authenticates once through Attio's OAuth flow, and Seren securely manages the tokens. Every API call is metered and billed transparently.
 
@@ -292,26 +254,7 @@ Questions? Drop them in comments or join our [Discord](https://discord.gg/jseg7q
 
 ---
 
-```text
-╔══════════════════════════════════════════════════════════════════════════════╗
-║                                                                              ║
-║     ███████╗███████╗██████╗ ███████╗███╗   ██╗ █████╗ ██╗                    ║
-║     ██╔════╝██╔════╝██╔══██╗██╔════╝████╗  ██║██╔══██╗██║                    ║
-║     ███████╗█████╗  ██████╔╝█████╗  ██╔██╗ ██║███████║██║                    ║
-║     ╚════██║██╔══╝  ██╔══██╗██╔══╝  ██║╚██╗██║██╔══██║██║                    ║
-║     ███████║███████╗██║  ██║███████╗██║ ╚████║██║  ██║██║                    ║
-║     ╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝                    ║
-║                                                                              ║
-║              Attio CRM + Seren MCP: Autonomous Sales Pipelines               ║
-║                                                                              ║
-║     ┌──────────────────────────────────────────────────────────────────┐    ║
-║     │  serendb.com  •  docs.serendb.com  •  console.serendb.com       │    ║
-║     └──────────────────────────────────────────────────────────────────┘    ║
-║                                                                              ║
-║                  hello@serendb.com | discord.gg/jseg7q4KS7                   ║
-║                                                                              ║
-╚══════════════════════════════════════════════════════════════════════════════╝
-```
+![SerenAI - Attio CRM + Seren MCP: Autonomous Sales Pipelines](images/attio_serenai_footer.jpg)
 
 ---
 
