@@ -70,40 +70,82 @@ Traditionally, this would require a sales development rep spending 20+ hours per
 
 ### The AI Agent Solution
 
-Using Seren MCP, they deployed an autonomous prospecting agent that:
+Using Seren MCP, they deployed an autonomous prospecting agent. Here's the full prompt you can copy and paste to try it yourself:
 
-**1. Sources Companies from Crunchbase**
 ```
-Agent → Seren MCP → Crunchbase Publisher
-"Find Series A+ SaaS companies founded after 2020 with 50-500 employees"
+You are an autonomous B2B prospecting agent. Your task is to build a qualified
+prospect list and populate my Attio CRM. Follow these steps:
+
+## Step 1: Source Companies from Crunchbase
+Use the Crunchbase publisher via Seren MCP to find companies matching:
+- Funding stage: Series A or later
+- Industry: SaaS, FinTech, or Healthcare Tech
+- Founded: 2020 or later
+- Employee count: 50-500
+- Location: United States
+
+For each company found, extract: company name, website, funding amount,
+employee count, industry, and a brief description.
+
+## Step 2: Enrich with Decision-Maker Contacts via Apollo
+For each company from Step 1, use the Apollo publisher to find contacts with
+titles containing: "VP Sales", "Head of Sales", "VP Business Development",
+"Head of BD", "Revenue Operations", or "RevOps".
+
+For each contact, extract: full name, email (if verified), job title,
+LinkedIn URL, and phone number (if available).
+
+## Step 3: Gather Company Intelligence with Firecrawl
+For each company, use the Firecrawl publisher to scrape their website's
+About page and main product pages. Extract:
+- Company positioning/value proposition
+- Target customer segments they serve
+- Any mentioned technology stack or integrations
+- Recent news or announcements
+
+## Step 4: Create Records in Attio CRM
+For each fully enriched prospect:
+
+1. Create a Company record in Attio with:
+   - Name, website, industry, employee count, funding stage
+   - Custom field "Intelligence Notes" with the Firecrawl insights
+
+2. Create Person records for each decision-maker contact, linked to the company:
+   - Name, email, job title, LinkedIn URL, phone
+
+3. Set the company's pipeline stage to "Researched"
+
+4. Add a Note to the company record summarizing why they match our ICP
+
+## Output
+After processing, provide a summary showing:
+- Total companies added
+- Total contacts added
+- Any companies skipped and why
+- Total Seren API costs incurred
 ```
 
-**2. Enriches Contacts via Apollo**
-```
-Agent → Seren MCP → Apollo Publisher
-"Get decision makers with titles containing 'Sales', 'BD', or 'Revenue'"
-```
+**Estimated Cost Per Prospect (assuming 4 contacts per company):**
 
-**3. Gathers Additional Intelligence with Firecrawl**
-```
-Agent → Seren MCP → Firecrawl Publisher
-"Scrape company about pages for product positioning and tech stack"
-```
+| Step | Publisher | Operation | Cost |
+|------|-----------|-----------|------|
+| 1 | Crunchbase | Company lookup | $0.15 |
+| 2 | Apollo | Contact search (returns multiple) | $0.04 |
+| 3 | Firecrawl | Website scrape | $0.002 |
+| 4 | Attio | Create company + 4 contacts + note | $0.012 |
+| — | SerenCron | Nightly execution | $0.0001 |
+| — | — | **Total per prospect** | **~$0.20** |
 
-**4. Populates Attio CRM**
-```
-Agent → Seren MCP → Attio Publisher
-"Create company record, link contacts, set pipeline stage to 'Researched'"
-```
+For 500 companies with 2,000 contacts: **~$100 total spend** for a fully enriched pipeline.
 
 ### The Results
 
-The agent runs nightly, continuously building and enriching the prospect database:
+The agent runs nightly via [SerenCron](https://serendb.com/bestsellers/serencron), continuously building and enriching the prospect database:
 
 - **500+ qualified companies** added to pipeline in first month
 - **2,000+ decision-maker contacts** with verified emails
 - **Zero manual data entry** by the sales team
-- **$0.02 average cost** per fully enriched prospect record
+- **$0.20 average cost** per fully enriched prospect record
 
 The sales team now spends their time on outreach and closing, not research and data entry.
 
@@ -160,22 +202,69 @@ The full Attio v2 API is available through Seren MCP:
 
 ### For Developers
 
-```python
-# Example: Create a contact in Attio via Seren MCP
-result = seren.execute_paid_api(
-    publisher="attio",
-    method="POST",
-    path="/v2/objects/people/records",
-    body={
-        "data": {
-            "values": {
-                "name": [{"first_name": "Jane", "last_name": "Smith"}],
-                "email_addresses": [{"email_address": "jane@example.com"}],
-                "job_title": [{"value": "VP of Sales"}]
-            }
-        }
+Here's how to programmatically create the prospect records from our case study using the Seren MCP HTTP API:
+
+```bash
+# Step 1: Create the company record in Attio
+# This creates "Acme Analytics" - a Series A SaaS company from our Crunchbase search
+
+curl -X POST "https://mcp.serendb.com/api/publishers/attio/v2/objects/companies/records" \
+  -H "Authorization: Bearer YOUR_SEREN_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "data": {
+      "values": {
+        "name": [{"value": "Acme Analytics"}],
+        "domains": [{"domain": "acmeanalytics.io"}],
+        "description": [{"value": "Series A SaaS analytics platform, 120 employees. Tech stack: React, Python, AWS. Targeting mid-market B2B companies."}]
+      }
     }
-)
+  }'
+
+# Response includes the company record ID for linking contacts
+# Cost: $0.002 (write operation)
+```
+
+```bash
+# Step 2: Create the decision-maker contact, linked to the company
+# This adds the VP of Sales we found via Apollo
+
+curl -X POST "https://mcp.serendb.com/api/publishers/attio/v2/objects/people/records" \
+  -H "Authorization: Bearer YOUR_SEREN_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "data": {
+      "values": {
+        "name": [{"first_name": "Sarah", "last_name": "Chen"}],
+        "email_addresses": [{"email_address": "sarah.chen@acmeanalytics.io"}],
+        "job_title": [{"value": "VP of Sales"}],
+        "linkedin_url": [{"value": "https://linkedin.com/in/sarachen"}],
+        "company": [{"record_id": "COMPANY_RECORD_ID_FROM_STEP_1"}]
+      }
+    }
+  }'
+
+# Cost: $0.002 (write operation)
+```
+
+```bash
+# Step 3: Add a note with the Firecrawl intelligence
+# Attaches the web research to the company record
+
+curl -X POST "https://mcp.serendb.com/api/publishers/attio/v2/notes" \
+  -H "Authorization: Bearer YOUR_SEREN_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "data": {
+      "parent_object": "companies",
+      "parent_record_id": "COMPANY_RECORD_ID_FROM_STEP_1",
+      "title": "ICP Match Analysis",
+      "content": "Strong ICP fit: Series A ($12M), 120 employees, pure SaaS play. Website shows they target mid-market B2B - likely experiencing our exact pain points. Recently announced expansion into enterprise segment. Priority: HIGH."
+    }
+  }'
+
+# Cost: $0.002 (write operation)
+# Total cost for one fully enriched prospect: ~$0.006 Attio API calls
 ```
 
 ## The Future of CRM is Autonomous
