@@ -118,11 +118,14 @@ For each fully enriched prospect:
 4. Add a Note to the company record summarizing why they match our ICP
 
 ## Output
-After processing, provide a summary showing:
-- Total companies added
+After processing, write a summary to SerenNotes explaining:
+- Total companies added and why each was selected
 - Total contacts added
 - Any companies skipped and why
 - Total Seren API costs incurred
+- Your reasoning for ICP match decisions
+
+This gives me a persistent record to review your choices asynchronously.
 ```
 
 **Estimated Cost Per Prospect (assuming 4 contacts per company):**
