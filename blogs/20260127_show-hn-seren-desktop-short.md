@@ -1,4 +1,4 @@
-# Show HN: Seren Desktop – Open Source AI IDE with Semantic Code Search
+# Show HN: Seren Desktop – Open Source AI IDE with Publisher Marketplace and x402 Micropayments
 
 Hey HN! We built Seren Desktop, a lightweight AI-powered desktop IDE that indexes your codebase with semantic embeddings so AI actually understands your project context.
 
