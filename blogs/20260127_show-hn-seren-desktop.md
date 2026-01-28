@@ -1,25 +1,38 @@
 # Show HN: Seren Desktop – Open Source AI IDE with Publisher Marketplace and x402 Micropayments
 
-Hey HN! We built Seren Desktop, a lightweight (~10MB) AI-powered desktop IDE that indexes your entire codebase with semantic embeddings so AI actually understands your project context.
+Hey HN! We built Seren Desktop, an MIT-licensed desktop IDE with a built-in marketplace of 50+ AI-accessible services. Pay for what you use with USDC micropayments (x402 protocol on Base network).
 
-## What is it?
+## What makes it different
 
-Seren Desktop is an MIT-licensed Tauri + SolidJS desktop app that combines:
-- **AI chat with automatic code context** – The AI retrieves relevant code chunks from your indexed codebase during conversations
-- **Monaco editor** – Full VS Code editing experience with Cmd+K inline AI editing
-- **Agent Client Protocol (ACP)** – Run Claude Code and compatible AI agents directly in the app
-- **Semantic codebase indexing** – Local sqlite-vec storage for instant similarity search
-- **Publisher marketplace** – Access 50+ AI-accessible services (databases, web scraping, email, etc.)
-- **Model Context Protocol (MCP)** – Connect to MCP servers for extended AI capabilities
+Most AI IDEs lock you into one provider, one model, and a subscription. Seren Desktop:
+
+**Publisher Marketplace** – 50+ services AI can access directly:
+- **Databases**: Query SerenDB (serverless Postgres), MongoDB, Supabase with natural language
+- **Web tools**: Scrape websites (Firecrawl), AI search (Perplexity)
+- **Integrations**: Email, calendar, CRM. Coming: GitHub, Linear, Notion
+- **Compute**: Code sandboxes, agent templates, custom workflows
+
+**Micropayments that work** – x402 USDC on Base network:
+- No subscriptions, no tiers, no credits expiring
+- Pay per API call at publisher-set prices
+- Example: Firecrawl scrape = $0.01, Perplexity search = $0.005
+
+**Open everything else**:
+- MIT license, ~10MB Rust/Tauri binary (not Electron)
+- Any AI model (Claude, GPT-4, Gemini) via Seren Gateway or your own keys
+- Semantic codebase indexing with sqlite-vec (local, instant)
+- Agent Client Protocol support (run Claude Code directly)
 
 ## Why we built this
 
-We kept hitting the same frustration: AI assistants couldn't see our entire codebase, so they'd give generic answers or miss important context. Tools like Cursor and GitHub Copilot are great, but we wanted something open source that could:
+We kept hitting the same problem: AI assistants need external services but have no way to pay for them. Want to scrape a website? Search the web? Query a database? You're stuck copy-pasting or building custom integrations.
 
-1. **Index the entire codebase semantically** – Not just grep/fuzzy search, but actual vector embeddings that understand code relationships
-2. **Work with any AI model** – Claude, GPT-4, Gemini, or your own API keys
-3. **Run AI agents directly** – Support the Agent Client Protocol so tools like Claude Code can read files, execute commands, and make edits
-4. **Stay lightweight and fast** – ~10MB binary, not a bloated Electron app
+Cursor and Copilot are great for editing code, but they can't access external services. Continue.dev has MCP but no payment system. We wanted:
+
+1. **A real marketplace** where publishers can offer services and get paid automatically
+2. **Micropayments** that actually work (no minimum balances, instant settlement)
+3. **Open source client** so you're not locked in
+4. **Semantic codebase indexing** so AI understands your project
 
 ## How semantic indexing works
 
@@ -54,25 +67,23 @@ Think of it like VS Code (open source) connecting to the Extension Marketplace (
 - **Agent protocol**: agent-client-protocol + claude-code-acp-rs
 - **Crypto**: alloy-rs for USDC micropayments on Base network (x402 standard)
 
-## What makes this different
+## What makes this different from other AI IDEs
 
 **vs Cursor/Windsurf:**
+- Publisher marketplace with real micropayments (they don't have this)
 - Fully open source (MIT), not proprietary
 - Works with any AI model, not locked to one provider
-- ACP agent support built-in
-- Publisher marketplace for extended capabilities
 
 **vs GitHub Copilot:**
-- Full IDE, not just an editor extension
-- Semantic codebase indexing with vector search
-- Multi-model support (not just OpenAI)
-- Local-first architecture
+- AI can access external services (web scraping, databases, APIs)
+- Publisher marketplace with 50+ services
+- Pay-per-use, not subscription
+- Semantic codebase indexing
 
 **vs Continue.dev:**
+- Built-in marketplace + micropayments (they have MCP but no payment layer)
 - Native desktop app (Tauri), not VS Code extension
-- Built-in publisher marketplace and MCP integration
-- Micropayments for AI-powered services
-- Agent Client Protocol support
+- Agent Client Protocol support for Claude Code
 
 ## Current status
 

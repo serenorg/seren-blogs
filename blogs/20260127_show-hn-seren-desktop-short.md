@@ -1,32 +1,40 @@
 # Show HN: Seren Desktop – Open Source AI IDE with Publisher Marketplace and x402 Micropayments
 
-Hey HN! We built Seren Desktop, a lightweight AI-powered desktop IDE that indexes your codebase with semantic embeddings so AI actually understands your project context.
+Hey HN! We built Seren Desktop, an MIT-licensed desktop IDE with a built-in marketplace of 50+ AI-accessible services. Pay for what you use with USDC micropayments on Base (x402 protocol).
 
-## The problem
+## What makes it different
 
-AI coding assistants can't see your entire codebase, so they give generic answers or miss important context. We wanted something that:
-- Indexes the entire codebase semantically (not just grep)
-- Works with any AI model (Claude, GPT-4, Gemini, or your own keys)
-- Runs AI agents directly (Claude Code via Agent Client Protocol)
-- Stays lightweight (~10MB, not Electron)
+Most AI IDEs lock you into one provider and one model. Seren Desktop:
+- **Open marketplace** – 50+ publishers for databases (SerenDB, MongoDB), web scraping (Firecrawl), AI search (Perplexity), email, calendars, CRM
+- **Micropayments that work** – x402 USDC on Base network. No subscription tiers, no credits expiring. Pay per API call.
+- **Any AI model** – Claude, GPT-4, Gemini via Seren Gateway, or bring your own API keys
+- **Fully open source** – MIT license, ~10MB Rust/Tauri binary (not Electron)
+- **Semantic codebase indexing** – sqlite-vec + SerenEmbed for instant code context retrieval
 
-## How it works
+## The marketplace
 
-1. Open a project → Seren indexes your code with SerenEmbed embeddings
-2. Stores vectors locally in sqlite-vec for instant similarity search
-3. When you chat with AI, automatically injects relevant code chunks into context
+Browse 50+ publishers in the app:
+
+- **Databases**: Query SerenDB (serverless Postgres), MongoDB, Supabase with natural language. AI generates SQL/queries automatically.
+- **Web tools**: Scrape websites with Firecrawl, AI-powered search with Perplexity
+- **Integrations**: Email, calendar, CRM actions. Coming soon: GitHub, Linear, Notion
+- **Compute**: Run code sandboxes, agent templates, custom workflows
+
+Each publisher sets their own pricing. You pay per API call with USDC on Base (x402 standard). No subscriptions, no expiring credits.
+
+## How semantic indexing works
+
+1. Index your codebase with SerenEmbed (language-aware chunking for Rust, TS/JS, Python)
+2. Vectors stored locally in sqlite-vec for instant retrieval
+3. AI automatically gets relevant code context during chat
 4. File watcher triggers incremental re-indexing on save
-
-No manual copy-pasting. The AI just knows your codebase.
 
 ## What's inside
 
-- **Semantic indexing** with language-aware chunking (Rust, TS/JS, Python)
 - **Monaco editor** with Cmd+K inline AI editing
-- **Agent Client Protocol** for Claude Code and compatible agents
-- **Publisher marketplace** – 50+ AI-accessible services (databases, web scraping, email)
-- **Model Context Protocol** – Connect to MCP servers for extended capabilities
-- **Micropayments** – x402 USDC on Base network for AI services
+- **Agent Client Protocol** for running Claude Code and compatible agents
+- **Model Context Protocol** for local MCP servers
+- **Multi-model support** with free tier (Gemini 2.0 Flash)
 
 ## Tech stack
 
