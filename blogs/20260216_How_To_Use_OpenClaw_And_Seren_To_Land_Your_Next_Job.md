@@ -118,53 +118,82 @@ The wizard will:
 
 **What you're doing**: Installing a personal AI assistant that runs on your computer, not in the cloud. Your data stays private.
 
-### Step 2: Let OpenClaw Set Up Seren for You (Automatic)
+### Step 2: Point OpenClaw to the Job Seeker Skill (One-Time Setup)
 
-Here's the magic: **You don't need to manually sign up for Seren**. OpenClaw handles this automatically when you first try to use a Seren skill.
+OpenClaw needs to know where to find the Seren Job Seeker skill. Think of this like installing an app on your phone—you only do it once.
 
-**What happens:**
-1. You message OpenClaw: "Find me a job"
-2. OpenClaw detects you need Seren access
-3. OpenClaw walks you through Seren signup (via chat)
-4. OpenClaw creates your Seren account and API key
-5. OpenClaw saves your credentials securely
+**In your terminal:**
 
-**Your role**: Just follow OpenClaw's prompts in the chat. It'll ask for:
-- Email address (for Seren account)
-- Payment method (to fund SerenBucks wallet)
+```bash
+# Clone the Seren skills repository
+git clone https://github.com/serenorg/seren-desktop.git ~/seren-skills
 
-**What you're doing**: Letting your AI assistant handle the technical setup while you just answer questions via chat.
+# Tell OpenClaw where to find skills (add to your OpenClaw config)
+# The skills are located at: ~/seren-skills/skills/job-seeker
+```
 
-### Step 3: Fund Your SerenBucks Wallet (When OpenClaw Asks)
-
-SerenBucks are the micropayment currency for AI agent services. Think of them like App Store credits.
-
-**OpenClaw will prompt you:**
+**Or simpler - just message OpenClaw:**
 
 ```
-OpenClaw: "To run the Job Seeker skill, I need to access Seren publishers.
-This will cost approximately $20.30.
+You: "Install the Job Seeker skill from https://github.com/serenorg/seren-desktop/tree/main/skills/job-seeker"
 
-I'll need to set up your Seren account and fund it with SerenBucks.
+OpenClaw: "I'll clone the Seren skills repository and add the Job Seeker skill to my available tools. One moment...
 
-Funding options:
+✓ Repository cloned
+✓ Job Seeker skill installed
+✓ Skill dependencies verified
+
+The Job Seeker skill is now available. It can:
+- Discover companies via AlphaGrowth
+- Research companies via Perplexity + Exa
+- Find hiring managers via Apollo.io
+- Verify emails and generate outreach
+
+Cost: $20-56 per search depending on options.
+
+Ready to use! Just say 'Find me a job' when you're ready."
+```
+
+**What you're doing**: Giving OpenClaw access to the Job Seeker skill so it can run automated job searches for you.
+
+### Step 3: Let the Skill Handle Seren Setup (Automatic via Chat)
+
+Once the Job Seeker skill is installed, it handles Seren account creation and funding automatically when you first use it.
+
+**What happens when you run your first search:**
+
+```
+You: "Find me ML engineer jobs in San Francisco"
+
+OpenClaw: "I'll use the Job Seeker skill. This is your first time using Seren publishers.
+
+The skill needs to:
+1. Create your Seren account
+2. Fund your SerenBucks wallet ($20-56 for full search)
+
+I can handle both via the skill. What email should I use for your Seren account?"
+
+You: "my.email@example.com"
+
+OpenClaw: "Perfect. Creating Seren account with my.email@example.com...
+
+✓ Account created! API key: sb_abc123xyz (saved securely)
+
+Now, how would you like to fund your wallet?
 - Stripe (Credit Card): $5 minimum, instant
-- Daily Free Credits: $0 (limited, good for testing)
-- Crypto: Varies by network
+- Daily Free Credits: $0 (for testing)
+- Crypto: Varies
 
-How would you like to fund your account?"
+I recommend $60 to cover the full job search campaign."
 
-You: "Stripe, deposit $60"
+You: "Stripe, $60"
 
-OpenClaw: "Perfect. I'm creating your Seren account now...
-Account created! Your API key: sb_abc123xyz (saved securely)
+OpenClaw: "Opening Stripe checkout for $60 deposit... Complete the payment in your browser.
 
-Opening Stripe checkout for $60 deposit..."
+Once funded, I'll start your job search immediately."
 ```
 
-**Recommended**: Deposit $60 to cover a full job search campaign ($20-56 depending on options).
-
-**What you're doing**: Pre-funding your wallet so OpenClaw can pay for premium data as it runs your job search. OpenClaw handles all the technical details—you just approve the payment.
+**What you're doing**: The skill talks you through Seren setup via chat. You just answer questions and approve payment. No manual account creation needed.
 
 ### Step 4: Download Your LinkedIn Data (10-15 minutes wait time)
 
