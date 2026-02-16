@@ -92,6 +92,8 @@ You install OpenClaw once on your computer (Mac, Linux, or Windows). It runs in 
 
 ## How It Works (Non-Technical Walkthrough)
 
+**Total time**: 15 minutes of active work + 10-15 minutes waiting for LinkedIn data
+
 ### Step 1: Install OpenClaw (5 minutes)
 
 **Requirements:**
@@ -116,58 +118,55 @@ The wizard will:
 
 **What you're doing**: Installing a personal AI assistant that runs on your computer, not in the cloud. Your data stays private.
 
-### Step 2: Sign Up for Seren (3 minutes)
+### Step 2: Let OpenClaw Set Up Seren for You (Automatic)
 
-**Go to**: [https://serendb.com](https://serendb.com)
+Here's the magic: **You don't need to manually sign up for Seren**. OpenClaw handles this automatically when you first try to use a Seren skill.
 
-**Create account:**
-1. Click "Sign Up"
-2. Enter email and create password
-3. Verify email
-4. You receive a unique API key (save this!)
+**What happens:**
+1. You message OpenClaw: "Find me a job"
+2. OpenClaw detects you need Seren access
+3. OpenClaw walks you through Seren signup (via chat)
+4. OpenClaw creates your Seren account and API key
+5. OpenClaw saves your credentials securely
 
-**What you're doing**: Creating an account to access premium data publishers through the Seren marketplace.
+**Your role**: Just follow OpenClaw's prompts in the chat. It'll ask for:
+- Email address (for Seren account)
+- Payment method (to fund SerenBucks wallet)
 
-### Step 3: Fund Your SerenBucks Wallet (2 minutes)
+**What you're doing**: Letting your AI assistant handle the technical setup while you just answer questions via chat.
+
+### Step 3: Fund Your SerenBucks Wallet (When OpenClaw Asks)
 
 SerenBucks are the micropayment currency for AI agent services. Think of them like App Store credits.
 
-**Funding options:**
+**OpenClaw will prompt you:**
 
-| Method | Minimum | Best For |
-|--------|---------|----------|
-| **Stripe (Credit Card)** | $5 | Most users (instant) |
-| **Daily Free Credits** | $0 | Testing (claim daily) |
-| **Crypto Deposit** | Varies | Privacy-focused users |
+```
+OpenClaw: "To run the Job Seeker skill, I need to access Seren publishers.
+This will cost approximately $20.30.
+
+I'll need to set up your Seren account and fund it with SerenBucks.
+
+Funding options:
+- Stripe (Credit Card): $5 minimum, instant
+- Daily Free Credits: $0 (limited, good for testing)
+- Crypto: Varies by network
+
+How would you like to fund your account?"
+
+You: "Stripe, deposit $60"
+
+OpenClaw: "Perfect. I'm creating your Seren account now...
+Account created! Your API key: sb_abc123xyz (saved securely)
+
+Opening Stripe checkout for $60 deposit..."
+```
 
 **Recommended**: Deposit $60 to cover a full job search campaign ($20-56 depending on options).
 
-**To fund via Stripe:**
-1. Log into [serendb.com](https://serendb.com)
-2. Click "Wallet" → "Deposit"
-3. Enter $60
-4. Complete Stripe checkout
-5. SerenBucks appear instantly
+**What you're doing**: Pre-funding your wallet so OpenClaw can pay for premium data as it runs your job search. OpenClaw handles all the technical details—you just approve the payment.
 
-**What you're doing**: Pre-funding your wallet so OpenClaw can pay for premium data as it runs your job search.
-
-### Step 4: Connect Seren to OpenClaw (2 minutes)
-
-**In your terminal:**
-
-```bash
-# Set your Seren API key as an environment variable
-echo 'export SEREN_API_KEY="sb_your_key_here"' >> ~/.bashrc
-source ~/.bashrc
-
-# Or for macOS:
-echo 'export SEREN_API_KEY="sb_your_key_here"' >> ~/.zshrc
-source ~/.zshrc
-```
-
-**What you're doing**: Giving OpenClaw permission to use your Seren account for job search skills.
-
-### Step 5: Download Your LinkedIn Data (10-15 minutes wait time)
+### Step 4: Download Your LinkedIn Data (10-15 minutes wait time)
 
 The Job Seeker skill needs your LinkedIn profile data to personalize outreach.
 
@@ -183,7 +182,7 @@ The Job Seeker skill needs your LinkedIn profile data to personalize outreach.
 
 **What you're doing**: Exporting your professional background so the AI can craft personalized emails mentioning your actual skills and experience.
 
-### Step 6: Start Your Job Search (Just Chat!)
+### Step 5: Start Your Job Search (Just Chat!)
 
 Now comes the magic. **No code. No terminal. Just conversation.**
 
@@ -434,22 +433,22 @@ A: Yes! OpenClaw can run 100+ Seren skills: trading bots, web scraping, data ana
 
 ## Getting Started Today
 
-**Time investment**: 20 minutes
-**Cost**: $65 ($5 Seren minimum deposit + $60 for full campaign)
+**Time investment**: 15 minutes (+ 10-15 min waiting for LinkedIn data)
+**Cost**: $60 (SerenBucks for full campaign - OpenClaw sets up Seren account for you)
 **Payoff**: Automated job search that took 30 minutes instead of 10+ hours
 
 ### Quick Start Checklist
 
 - [ ] Install OpenClaw: `npm install -g openclaw@latest`
 - [ ] Run onboarding: `openclaw onboard --install-daemon`
-- [ ] Sign up for Seren: [https://serendb.com](https://serendb.com)
-- [ ] Deposit $60 SerenBucks via Stripe
-- [ ] Connect Seren API key to OpenClaw
-- [ ] Download LinkedIn data export
+- [ ] Download LinkedIn data export (while OpenClaw installs)
 - [ ] Message OpenClaw: "Find me [role] jobs at [industry] companies in [location]"
-- [ ] Review results and send outreach emails
+- [ ] Let OpenClaw set up your Seren account (automatic via chat)
+- [ ] Approve $60 SerenBucks deposit when OpenClaw prompts you
+- [ ] Review results 30 minutes later
+- [ ] Send personalized outreach emails
 
-That's it. **No terminal commands beyond install. No code to write. Just conversation.**
+That's it. **No terminal commands beyond install. No manual signups. Just conversation with your AI.**
 
 ## The Future of Job Searching
 
