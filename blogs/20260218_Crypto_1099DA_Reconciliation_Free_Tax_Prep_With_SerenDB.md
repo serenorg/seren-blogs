@@ -18,7 +18,7 @@
 
 Crypto tax reporting is now a systems problem, not just a spreadsheet problem. For 2026 filing, most serious crypto users have two realities at once: exchange-level reporting from Form 1099-DA and wallet-level reality in tax software. If those two datasets do not reconcile line-by-line, Form 8949 preparation becomes stressful, manual, and expensive.
 
-The good news is that this new Crypto 1099-DA reconciliation workflow gives teams and individual filers a clean path: free tax preparation automation, free data storage in your hosted SerenDB setup, and a direct CPA escalation path when legal judgment is required.
+The good news is that this new Crypto 1099-DA reconciliation workflow gives teams and individual filers a clean path: free tax preparation automation, free data storage in your hosted [SerenDB](https://serendb.com) setup, and a direct CPA escalation path when legal judgment is required.
 
 This is the exact combination most crypto filers need. Automation handles the heavy lifting. Your own data store preserves traceability. A licensed professional handles final tax advice and audit-sensitive decisions.
 
@@ -34,6 +34,18 @@ Typical mismatch causes include:
 - small rounding differences that become large annual totals
 
 The reconciliation skill is designed for this exact reality. It standardizes records, resolves missing basis fields when mathematically derivable, audits deltas against tax-software exports, and persists all artifacts in a structured schema you control.
+
+## How to Start the Skill
+
+1. Download and install [Seren Desktop](https://serendb.com/install) for your operating system.
+2. Open Seren Desktop and click `+New Agent`.
+3. Choose your runtime path:
+- Launch a Seren Agent with purchased SerenBucks to use available AI models.
+- Or login through Claude/Codex agents using your Claude or Codex subscription authentication.
+4. In the skill search box, search for `1099 crypto tax`.
+5. Click the skill to activate it.
+6. Upload your CSV files to the agent (1099-DA export and tax software export). Have documents ready before starting.
+7. Run the reconciliation workflow and review exceptions before final filing.
 
 ```text
       +----------------------+      +----------------------+      +----------------------+
@@ -71,7 +83,7 @@ This persistence layer is where many tax workflows fail. People do one-off CSV d
 
 Manual cleanup works for one account and one tax year. It does not scale when you have multiple exchanges, multiple wallets, and a changing transaction history.
 
-SerenAI agents using this skill are valuable because they are systematic and repeatable. They do not get tired, do not skip steps, and can produce the same output structure every run.
+[SerenAI](https://serendb.com) agents using this skill are valuable because they are systematic and repeatable. They do not get tired, do not skip steps, and can produce the same output structure every run.
 
 ```text
      BEFORE                                    AFTER
@@ -126,11 +138,11 @@ The biggest win is leverage: you get free tax-preparation automation, free data 
 If you want confidence without spreadsheet chaos, this skill is the right architecture.
 
 ```text
- ___________________________________________________________________________
-|  NEXT STEP: START HERE                                                     |
-|                                                                            |
-|   [1] Explore SerenDB + agents:  https://serendb.com                      |
-|   [2] Install Seren Desktop:     https://serendb.com/install              |
+ __________________________________________________________________________________
+|  NEXT STEP: START HERE                                                            |
+|                                                                                   |
+|   [1] Explore SerenDB + agents:  https://serendb.com                             |
+|   [2] Install Seren Desktop:     https://serendb.com/install                     |
 |                                                                            |
 |      ____                          ____                                     |
 |     / __ \   FILE WITH CLARITY    / __ \    TRACE EVERY DELTA             |
@@ -139,7 +151,25 @@ If you want confidence without spreadsheet chaos, this skill is the right archit
 |   | |  SEREN + SKILLS + CPA      | |  2026 READY                           |
 |    \ \__/ /                      \ \__/ /                                   |
 |     \____/                        \____/                                    |
-|____________________________________________________________________________|
+|__________________________________________________________________________________|
 ```
+
+## Get Started
+
+- What is Seren? [https://serendb.com](https://serendb.com)
+- Full API Docs: [https://docs.serendb.com](https://docs.serendb.com)
+- Sign Up Free: [https://console.serendb.com](https://console.serendb.com)
+- Download Seren Desktop in 90 seconds or less: [https://serendb.com/install](https://serendb.com/install)
+- Questions? Drop them in comments or join our Discord: [https://discord.gg/jseg7q4KS7](https://discord.gg/jseg7q4KS7)
+
+## Legal, Tax, and Accounting Disclaimers
+
+- This post is for informational and educational purposes only.
+- Nothing in this post is legal, tax, accounting, investment, or financial advice.
+- You are solely responsible for your filings, positions, classifications, and jurisdiction-specific compliance.
+- Tax treatment for digital assets varies by jurisdiction and may change over time.
+- AI-generated analysis may contain errors or incomplete assumptions.
+- Always review outputs and consult a licensed CPA, EA, tax attorney, or other qualified professional before filing.
+- No warranty is provided for completeness, accuracy, fitness for purpose, or audit outcomes.
 
 Tags: #crypto #tax #1099da #form8949 #serendb #agents #automation #cpa
