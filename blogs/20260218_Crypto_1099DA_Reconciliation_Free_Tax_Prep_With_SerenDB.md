@@ -1,4 +1,4 @@
-# 2026 Tax Season Winner: Free Crypto 1099-DA Reconciliation, Free SerenDB Storage, and CPA Backup
+# 2026 Tax Season Winner: Free Crypto 1099-DA Reconciliation, Free SerenDB Storage, and CPA Support from TheBitcoinCPA
 
 ```text
   _________________________________________________________________
@@ -16,22 +16,32 @@
  \_________________________________________________________________/
 ```
 
+## 1099-DA Reconciliation Seren Skill Sponsor
+
+[SerenAI](https://serendb.com) Skills are sponsored by leading professionals and experts across sectors, including Financial Services. Skill Sponsors help deliver skills that AIs can use to make the Seren experience compelling and trustworthy.
+
+### A little about Kirk Phillips
+
+Kirk Phillips, CPA, CMA, CFE, CBP @TheBitcoinCPA™  
+Founder of Crypto Bullseye Zone™  
+"Information about crypto is more valuable than crypto itself."
+
+Get crypto intel you can trust from crypto coach Kirk David Phillips, who uses and studies crypto every day and has 10+ years in the crypto space.
+
+- Website: [https://www.cryptobullseye.zone/](https://www.cryptobullseye.zone/)
+- About Kirk: [https://www.cryptobullseye.zone/about/kirk-david-phillips](https://www.cryptobullseye.zone/about/kirk-david-phillips)
+
+[![Kirk David Phillips - TheBitcoinCPA](https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/3235865/settings_images/f6e2206-87cf-ef15-1ae-28f5ae26f3_about-kdp-header.webp)](https://www.cryptobullseye.zone/about/kirk-david-phillips)
+
 Crypto tax reporting is now a systems problem, not just a spreadsheet problem. For 2026 filing, most serious crypto users have two realities at once: exchange-level reporting from Form 1099-DA and wallet-level reality in tax software. If those two datasets do not reconcile line-by-line, Form 8949 preparation becomes stressful, manual, and expensive.
 
 The good news is that this new Crypto 1099-DA reconciliation workflow gives teams and individual filers a clean path: free tax preparation automation, free data storage in your hosted [SerenDB](https://serendb.com) setup, and a direct CPA escalation path when legal judgment is required.
-
-This is the exact combination most crypto filers need. Automation handles the heavy lifting. Your own data store preserves traceability. A licensed professional handles final tax advice and audit-sensitive decisions.
 
 ## Why this matters right now
 
 1099-DA reporting closes a long-standing gap between broker records and taxpayer-prepared filings. That is good for clarity, but it raises the bar for consistency. If your tax software says one thing and broker statements say another, you need a defensible explanation for every delta.
 
-Typical mismatch causes include:
-- timezone misalignment between exports
-- fee handling differences
-- missing transfer history that breaks basis continuity
-- symbol mapping drift after wrappers, migrations, or staking transitions
-- small rounding differences that become large annual totals
+Typical mismatch causes include timezone misalignment between exports, fee handling differences, missing transfer history that breaks basis continuity, and symbol mapping drift after wrappers or migrations.
 
 The reconciliation skill is designed for this exact reality. It standardizes records, resolves missing basis fields when mathematically derivable, audits deltas against tax-software exports, and persists all artifacts in a structured schema you control.
 
@@ -65,25 +75,25 @@ The reconciliation skill is designed for this exact reality. It standardizes rec
 
 The workflow is intentionally direct.
 
-Step 1 normalizes your 1099-DA rows into a canonical shape with fields like `asset`, `quantity`, `disposed_at`, `proceeds_usd`, `cost_basis_usd`, `gain_loss_usd`, and source `raw` payload.
+Step 1 normalizes your 1099-DA rows into a canonical shape with fields like `asset`, `quantity`, `disposed_at`, `proceeds_usd`, `cost_basis_usd`, and `gain_loss_usd`.
 
-Step 2 resolves missing basis or gain/loss when values are derivable from available fields. If acquisition and disposal timestamps exist, holding period can be inferred.
+Step 2 resolves missing basis or gain/loss when values are derivable from available fields and infers holding period where timestamps are available.
 
-Step 3 audits resolved records against your tax software export. It matches rows using asset, quantity, and time tolerance, then outputs summary metrics and an exception table.
+Step 3 audits resolved records against your tax software export using asset, quantity, and time tolerance, then outputs summary metrics and an exception table.
 
-Step 4 persists all artifacts to SerenDB tables so every run is queryable and traceable:
+Step 4 persists all artifacts to [SerenDB](https://serendb.com) tables so every run is queryable and traceable:
 - `crypto_tax.reconciliation_runs`
 - `crypto_tax.normalized_1099da`
 - `crypto_tax.resolved_lots`
 - `crypto_tax.reconciliation_exceptions`
 
-This persistence layer is where many tax workflows fail. People do one-off CSV diffs, then lose history, assumptions, and rationale. With SerenDB storage, you keep a durable record of what changed and why.
+This persistence layer is where many tax workflows fail. People do one-off CSV diffs, then lose history, assumptions, and rationale. With [SerenDB](https://serendb.com) storage, you keep a durable record of what changed and why.
 
 ## Why agent-driven reconciliation is better than one-off manual cleanup
 
 Manual cleanup works for one account and one tax year. It does not scale when you have multiple exchanges, multiple wallets, and a changing transaction history.
 
-[SerenAI](https://serendb.com) agents using this skill are valuable because they are systematic and repeatable. They do not get tired, do not skip steps, and can produce the same output structure every run.
+[SerenAI](https://serendb.com) agents using this skill are valuable because they are systematic and repeatable.
 
 ```text
      BEFORE                                    AFTER
@@ -99,7 +109,7 @@ Manual cleanup works for one account and one tax year. It does not scale when yo
                          now closed
 ```
 
-This matters for teams too. If you are a preparer, reviewer, or operations lead, standardized outputs cut rework and keep reviewers focused on exceptions, not cleanup.
+If you are a preparer, reviewer, or operations lead, standardized outputs cut rework and keep reviewers focused on exceptions, not cleanup.
 
 ## Free software, but not “advice automation”
 
@@ -109,20 +119,11 @@ The software automates data normalization, matching, and discrepancy classificat
 
 When unresolved items remain, the workflow explicitly routes users to professional support. For this skill, the CPA escalation path is built in via CryptoBullseye.zone’s Crypto Action Plan.
 
-That gives users a practical operating model:
-- automate everything that is deterministic
-- escalate everything that is judgment-sensitive
-
-In other words, use software for certainty and people for interpretation.
+That gives users a practical operating model: automate what is deterministic, escalate what is judgment-sensitive.
 
 ## What “audit-ready” looks like
 
-A good reconciliation output is not just one total. It includes:
-- matched and unmatched counts
-- partial matches with quantified deltas
-- likely-cause labels for each exception
-- recommended next fix per exception
-- full persistence summary (what was stored, where, and when)
+A good reconciliation output is not just one total. It includes matched and unmatched counts, partial matches with quantified deltas, likely-cause labels for each exception, and a full persistence summary.
 
 By the time you finalize Form 8949, you should be able to answer:
 - did every 1099-DA disposition map to a documented row?
