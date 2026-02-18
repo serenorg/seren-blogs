@@ -31,7 +31,14 @@ Get crypto intel you can trust from crypto coach Kirk David Phillips, who uses a
 - Website: [https://www.cryptobullseye.zone/](https://www.cryptobullseye.zone/)
 - About Kirk: [https://www.cryptobullseye.zone/about/kirk-david-phillips](https://www.cryptobullseye.zone/about/kirk-david-phillips)
 
-[![Kirk David Phillips - TheBitcoinCPA](https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/3235865/settings_images/f6e2206-87cf-ef15-1ae-28f5ae26f3_about-kdp-header.webp)](https://www.cryptobullseye.zone/about/kirk-david-phillips)
+<a href="https://www.cryptobullseye.zone/about/kirk-david-phillips">
+  <img
+    src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/3235865/settings_images/c5e0ba-ba7-07a7-51db-e464f748f2ec_a8045206-92c3-4a1e-9d90-12c803d7d8a7.webp"
+    alt="Kirk David Phillips - TheBitcoinCPA"
+    width="420"
+    style="max-width:100%; height:auto;"
+  />
+</a>
 
 Crypto tax reporting is now a systems problem, not just a spreadsheet problem. For 2026 filing, most serious crypto users have two realities at once: exchange-level reporting from Form 1099-DA and wallet-level reality in tax software. If those two datasets do not reconcile line-by-line, Form 8949 preparation becomes stressful, manual, and expensive.
 
@@ -50,10 +57,10 @@ The reconciliation skill is designed for this exact reality. It standardizes rec
 1. Download and install [Seren Desktop](https://serendb.com/install) for your operating system.
 2. Open Seren Desktop and click `+New Agent`.
 3. Choose your runtime path:
-- Launch a Seren Agent with purchased SerenBucks to use available AI models.
+- Launch a Seren Agent with purchased SerenBucks to use any of 300 available AI models.
 - Or login through Claude/Codex agents using your Claude or Codex subscription authentication.
 4. In the skill search box, search for `1099 crypto tax`.
-5. Click the skill to activate it.
+5. Click the skill to save and then click again on the skill to activate it in your agent.
 6. Upload your CSV files to the agent (1099-DA export and tax software export). Have documents ready before starting.
 7. Run the reconciliation workflow and review exceptions before final filing.
 
@@ -169,7 +176,7 @@ If you want confidence without spreadsheet chaos, this skill is the right archit
 - Nothing in this post is legal, tax, accounting, investment, or financial advice.
 - You are solely responsible for your filings, positions, classifications, and jurisdiction-specific compliance.
 - Tax treatment for digital assets varies by jurisdiction and may change over time.
-- AI-generated analysis may contain errors or incomplete assumptions.
+- AI-generated analysis may contain errors, hallucinations or incomplete assumptions.
 - Always review outputs and consult a licensed CPA, EA, tax attorney, or other qualified professional before filing.
 - No warranty is provided for completeness, accuracy, fitness for purpose, or audit outcomes.
 
