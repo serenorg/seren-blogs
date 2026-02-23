@@ -192,3 +192,8 @@ SerenAI is building payment infrastructure for the AI agent economy. Our x402 Ga
 **Our Stack:** TypeScript, Rust, Python, PostgreSQL, Cloudflare Workers, Base (Ethereum L2), Coinbase x402 Protocol
 
 **Data Publishers:** Google, Nasdaq, Coinbase, Kraken, Alpaca, CoinGecko, Firecrawl, Perplexity, OpenAI, Moonshot AI, CoinMarketCap, and 110+ more
+
+**Contact us:**
+* https://serendb.com
+* email: hello at serendb.com
+* Discord: https://discord.gg/jseg7q4KS7
