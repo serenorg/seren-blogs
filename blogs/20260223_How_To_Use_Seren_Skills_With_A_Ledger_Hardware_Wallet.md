@@ -189,6 +189,6 @@ Start small, keep your device secure, and let your AI agent handle the repetitiv
 
 SerenAI is building payment infrastructure for the AI agent economy. Our x402 Gateway enables AI agents to autonomously pay for data and services using USDC micropayments on Base—no subscriptions, no API keys, no human intervention.
 
-**Our Stack:** TypeScript, Rust, PostgreSQL, Cloudflare Workers, Base (Ethereum L2), Coinbase x402 Protocol
+**Our Stack:** TypeScript, Rust, Python, PostgreSQL, Cloudflare Workers, Base (Ethereum L2), Coinbase x402 Protocol
 
-**Data Publishers:** Alpaca, CoinGecko, Firecrawl, Perplexity, OpenAI, Moonshot AI, CoinMarketCap, and 20+ more
+**Data Publishers:** Google, Nasdaq, Coinbase, Kraken, Alpaca, CoinGecko, Firecrawl, Perplexity, OpenAI, Moonshot AI, CoinMarketCap, and 110+ more
