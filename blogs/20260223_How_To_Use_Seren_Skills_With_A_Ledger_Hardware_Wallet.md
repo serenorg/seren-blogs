@@ -32,15 +32,10 @@ This guide is written for non-developers. No coding required.
 ## Why Ledger + AI Agents matters
 
 Most people trying AI trading or onchain automation get stuck in one of two bad setups:
-- They keep full private keys hot in software wallets (fast, but risky).
-- They keep everything cold and manual (safe, but too slow for real workflows).
+- Hot wallets with full private keys (fast, but risky).
+- Fully manual cold workflows (safe, but slow).
 
-Ledger + Seren Skills is the practical middle:
-- Your key stays on Ledger.
-- Your AI agent handles repetitive workflow steps.
-- You decide how much automation and how much manual confirmation you want.
-
-For OpenClaw and Seren Desktop users, this means you can run advanced agent workflows without abandoning hardware wallet discipline.
+Ledger + Seren Skills is the practical middle: your key stays on Ledger while your AI agent handles repetitive steps.
 
 ## Step-by-step: activate Ledger skill in Seren Desktop
 
@@ -163,17 +158,6 @@ Use this checklist exactly once, then keep it as your pre-flight routine:
 9. End run, re-lock device, restore stricter timeout.
 
 If you follow this process, you get speed from agents without giving up device-level signing security.
-
-## Why Seren Desktop + Seren Skills is different
-
-Seren Desktop is the runtime where your model, tools, and skills come together in one place. Seren Skills is the reusable capability layer that turns plain chat models into action systems.
-
-In this case:
-- Seren Desktop gives you the interface and model routing.
-- Seren Skills provides `ledger-signing` and strategy modules.
-- Your Ledger remains the signing authority.
-
-So you can run real workflows with Claude or Codex behavior, while preserving a hardware-security model that experienced crypto users already trust.
 
 ## Start now
 
