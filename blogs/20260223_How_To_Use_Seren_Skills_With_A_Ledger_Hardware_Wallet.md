@@ -19,43 +19,43 @@
 
 ---
 
-If you use OpenClaw or Seren Desktop and you already keep your funds on a Ledger, you are in the exact group this workflow is for.
+If you use OpenClaw or Seren Desktop and you already keep your funds on a Ledger hardware wallet, you are in the exact group this workflow is for.
 
 You want two things at the same time:
-1. Hardware wallet security.
-2. AI-agent speed for research and execution.
+1. Hardware wallet security with the seed phrase offline.
+2. AI-agent access to a dedicated wallet address that you control.
 
-The good news is that you do not need to choose one or the other. With the `ledger-signing` skill in Seren Skills, your AI agent can prepare and run strategy flows while signatures still come from your Ledger device.
+The good news is that you do not need to choose one or the other. With the `ledger-signing` skill in Seren Skills, your AI agent can prepare and run on-chain transactions while signatures still come from your Ledger device.
 
 This guide is written for non-developers. No coding required.
 
 ## Why Ledger + AI Agents matters
 
 Most people trying AI trading or onchain automation get stuck in one of two bad setups:
-- Hot wallets with full private keys (fast, but risky).
+- Hot wallets with full private keys on the hard-drive, or in memory (fast, but risky).
 - Fully manual cold workflows (safe, but slow).
 
 Ledger + Seren Skills is the practical middle: your key stays on Ledger while your AI agent handles repetitive steps.
 
 ## Step-by-step: activate Ledger skill in Seren Desktop
 
-1. Download and install Seren Desktop from `https://serendb.com`.
-2. Open Seren Desktop and sign in.
+1. Download and install Seren Desktop from `https://serendb.com/install`.
+2. Open Seren Desktop.
 3. Connect your preferred model provider:
-   - Claude subscription/API
-   - Codex/OpenAI API
-   - Any supported LLM API key in Seren Desktop
-4. Open the Skills panel.
+   - Claude subscription/API (no sign-in needed)
+   - Codex/OpenAI Subscription/API (no sign-in needed)
+   - Any supported LLM API key in Seren Desktop (requires sign-in with SerenDB account)
+4. The Skills panel on the left will be open.
 5. Search for `ledger-signing`.
-6. Click the skill to activate it in your current thread.
+6. Click the skill to save it to your thread and then click to activate it in your current thread.
 7. Connect your Ledger device by USB.
-8. Unlock Ledger with your PIN and open the Ethereum app.
+8. Unlock Ledger with your PIN and open the Ethereum or any blockchain supported by Ledger.
 
 At this point, your AI agent can run skill workflows that request Ledger signatures as needed.
 
 ```
 +--------------------------------------------------------------+
-|  SEREN DESKTOP                                               |
+|  SEREN DESKTOP LEDGER-AVAILABLE SKILLS                                               |
 |                                                              |
 |  [ Skills ]  Search: "ledger-signing"                       |
 |                                                              |
@@ -147,7 +147,7 @@ For non-developers, that means one major upgrade: you no longer need to manually
 
 Use this checklist exactly once, then keep it as your pre-flight routine:
 
-1. Install Seren Desktop and log in.
+1. Install Seren Desktop and Sign up to SerenDB so you can log in.
 2. Add your LLM provider key/subscription (Claude, Codex, or another supported model).
 3. Activate `ledger-signing` skill.
 4. Activate your strategy skill (for example Curve Yield Trader or Spectra).
@@ -163,7 +163,7 @@ If you follow this process, you get speed from agents without giving up device-l
 
 If you have a Ledger and you are already using OpenClaw or thinking about Seren Desktop, this is the fastest way to move from manual clicking to controlled agentic execution.
 
-- Download Seren Desktop: `https://serendb.com`
+- Download Seren Desktop: `https://serendb.com/install`
 - Browse and use skills, including `ledger-signing`, in the Seren Skills repo:  
   `https://github.com/serenorg/seren-skills`
 
@@ -182,3 +182,13 @@ Start small, keep your device secure, and let your AI agent handle the repetitiv
 |                                                                       |
 +-----------------------------------------------------------------------+
 ```
+
+---
+
+## About SerenAI
+
+SerenAI is building payment infrastructure for the AI agent economy. Our x402 Gateway enables AI agents to autonomously pay for data and services using USDC micropayments on Base—no subscriptions, no API keys, no human intervention.
+
+**Our Stack:** TypeScript, Rust, PostgreSQL, Cloudflare Workers, Base (Ethereum L2), Coinbase x402 Protocol
+
+**Data Publishers:** Alpaca, CoinGecko, Firecrawl, Perplexity, OpenAI, Moonshot AI, CoinMarketCap, and 20+ more
