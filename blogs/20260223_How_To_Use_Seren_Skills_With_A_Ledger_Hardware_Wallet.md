@@ -166,6 +166,8 @@ If you have a Ledger and you are already using OpenClaw or thinking about Seren 
 - Download Seren Desktop: `https://serendb.com/install`
 - Browse and use skills, including `ledger-signing`, in the Seren Skills repo:  
   `https://github.com/serenorg/seren-skills`
+- Inspect the Ledger skill directly (`ledger/ledger-signing`):  
+  `https://github.com/serenorg/seren-skills/tree/main/ledger/ledger-signing`
 
 Start small, keep your device secure, and let your AI agent handle the repetitive parts.
 
