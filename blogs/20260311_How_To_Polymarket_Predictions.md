@@ -21,6 +21,16 @@
 
 ---
 
+> **What does it cost?**
+> - **Backtesting:** Free (uses public Polymarket CLOB data + your [SerenBucks](https://serendb.com) for market discovery)
+> - **Predictions intelligence:** ~$0.30 per backtest run (batch consensus $0.15 + batch divergence $0.15)
+> - **Per-market live signals:** $0.05 per market (consensus, volatility, or orderbook)
+> - **Tracking 6 platforms by hand:** ~4 hours/day. Seren does it in 38ms for $0.05.
+>
+> Get [SerenBucks](https://serendb.com) to start. No subscriptions. Pay only for what you use.
+
+---
+
 ## The Three Big Problems Every Polymarket Maker Faces
 
 Imagine you have a lemonade stand. You want to sell lemonade AND buy lemonade from others. That is what a "maker" does on [Polymarket](https://serendb.com/skills) -- you put up prices to buy and sell, and you earn a little bit each time someone trades with you.
@@ -121,6 +131,8 @@ A full backtest with intelligence costs about **$0.30 in [SerenBucks](https://se
 We backtested the Polymarket maker-rebate-bot over 90 days with a $100 bankroll across 20 markets selected from a pool of 300 candidates. Market selection uses a composite scoring algorithm that ranks candidates by market-making suitability: price proximity to 0.50 (maximizing two-way order flow), 24-hour trading volume (ensuring fill opportunities), and bid-ask spread tightness (favoring liquid, competitive markets). All 300 candidates are evaluated concurrently -- history is fetched from the Polymarket CLOB `/prices-history` endpoint and orderbooks are synthetically reconstructed from live book snapshots. The top 20 scored markets receive equal capital allocation ($5 each), with per-market bankruptcy halts and equity floors to prevent unrealistic negative returns.
 
 On this baseline run, the bot achieved a **+90% return** ($100 to $190), generating 2,522 fill events across $2,974 in filled notional with a maximum drawdown of $113.
+
+**A real example from the backtest:** The market "Will Michael B. Jordan win Best Actor at the 98th Academy Awards?" scored high on our composite ranking -- the price sat near 0.50 (maximum two-way flow), volume was strong, and the spread was tight. With just $5 of allocated capital, the bot generated 133 fill events across $109 in filled notional and earned **+$158.69 in profit** -- a 3,174% return on that single market's allocation. Meanwhile, the market "Will Israel launch a major ground offensive in Lebanon by March 31?" contributed **+$64.92** from only 26 fills. These are the kinds of markets that a scoring algorithm surfaces and a blind picker misses.
 
 The next phase integrates **Seren Polymarket Predictions intelligence** -- cross-platform consensus pricing and divergence signals from Kalshi, Manifold, Metaculus, PredictIt, and Betfair -- to further improve market selection and directional quote skew. We expect the intelligence-enhanced backtest to show measurable improvement in both return and drawdowns when your agent runs the Polymarket skill.
 
