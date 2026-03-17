@@ -100,4 +100,29 @@ The conclusion is straightforward: crypto key recovery should begin on the local
 - Unsolicited outreach from a “recovery service” is a red flag.
 - This skill is diagnostic software, not a guarantee of recovery.
 
+## Disclaimers
+
+- This post is for informational and educational purposes only.
+- Nothing in this post is legal, financial, investment, tax, cybersecurity, or wallet-recovery advice.
+- This workflow does not guarantee recovery, access restoration, or preservation of funds.
+- AI-generated analysis may be incomplete, mistaken, or based on bad assumptions.
+- Users are solely responsible for how they handle seed phrases, private keys, wallet files, passwords, passphrases, hardware devices, and recovery attempts.
+- Never share secret wallet material with a third party, a chat window, or any “recovery service” claiming guaranteed success.
+- Hosted-model workflows may expose user-provided material to the selected model path; users who want the strongest local posture should prefer a local model inside Seren Desktop.
+- Complex, high-value, or expert-only recovery cases should be escalated to qualified professionals rather than improvised through repeated guessing.
+- No warranty is provided for completeness, accuracy, fitness for purpose, recovery outcomes, or loss prevention.
+
+## About SerenAI
+
+SerenAI is building payment infrastructure for the AI agent economy. Our x402 Gateway enables AI agents to autonomously pay for data and services using USDC micropayments on Base, without forcing users into fixed subscriptions, one-model lock-in, or brittle one-off integrations.
+
+**Our Stack:** TypeScript, Rust, Python, PostgreSQL, Cloudflare Workers, Base (Ethereum L2), Coinbase x402 Protocol
+
+**Data Publishers:** Google, Nasdaq, Coinbase, Kraken, Alpaca, CoinGecko, Firecrawl, Perplexity, OpenAI, Moonshot AI, CoinMarketCap, and 110+ more
+
+**Contact us:**
+- https://serendb.com
+- hello@serendb.com
+- https://discord.gg/jseg7q4KS7
+
 Tags: #crypto #wallets #security #selfcustody #serenai #serendesktop #skills #recovery
