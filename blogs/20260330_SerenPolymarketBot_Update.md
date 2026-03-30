@@ -55,6 +55,14 @@ If you want to see the upgraded setup in action before you run it yourself, watc
 
 The video is the fastest way to see the new scan flow, the upgraded execution safeguards, and the SerenDesktop workflow end to end.
 
+## GitHub Repo
+
+The full Polymarket Trading Bot code is open source here:
+
+- [serenorg/seren-skills/tree/main/polymarket/bot](https://github.com/serenorg/seren-skills/tree/main/polymarket/bot)
+
+If you want to inspect the runtime, modify the strategy, or fork the bot for your own deployment, start from that repository.
+
 If you want to try it, the workflow is straightforward:
 
 1. [Download and install SerenDesktop](https://serendb.com/install).
