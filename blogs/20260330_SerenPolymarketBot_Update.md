@@ -47,6 +47,14 @@ Another upgrade that is easy to underestimate is output quality and operability.
 
 On the infrastructure side, the bot is much closer to a real autonomous system. It now supports the **seren-cron local-pull runner** pattern, so the schedule can live in Seren while the actual trading process runs on the machine you control.
 
+## Watch the Video Walkthrough
+
+If you want to see the upgraded setup in action before you run it yourself, watch the new YouTube walkthrough here:
+
+- [How to use SerenDesktop Polymarket Trading Bot](https://youtu.be/ZpV1XLC5ir0)
+
+The video is the fastest way to see the new scan flow, the upgraded execution safeguards, and the SerenDesktop workflow end to end.
+
 If you want to try it, the workflow is straightforward:
 
 1. [Download and install SerenDesktop](https://serendb.com/install).
