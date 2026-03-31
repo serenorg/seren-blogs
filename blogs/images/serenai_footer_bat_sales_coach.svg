@@ -1,0 +1,30 @@
+<svg width="1600" height="420" viewBox="0 0 1600 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">SerenAI BAT Sales Coach Footer</title>
+  <desc id="desc">A neutral SerenAI footer image for the BAT Sales Coach blog post with no third-party branding.</desc>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="40" x2="1520" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07131A"/>
+      <stop offset="0.5" stop-color="#0B2730"/>
+      <stop offset="1" stop-color="#113B45"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="220" y1="96" x2="1040" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#87F0D4"/>
+      <stop offset="1" stop-color="#F7E48B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="420" rx="28" fill="url(#bg)"/>
+  <circle cx="1330" cy="96" r="148" fill="#87F0D4" fill-opacity="0.08"/>
+  <circle cx="1458" cy="316" r="176" fill="#F7E48B" fill-opacity="0.07"/>
+  <path d="M111 114H327" stroke="#87F0D4" stroke-width="6" stroke-linecap="round" stroke-opacity="0.85"/>
+  <path d="M111 314H493" stroke="#F7E48B" stroke-width="6" stroke-linecap="round" stroke-opacity="0.9"/>
+  <text x="112" y="182" fill="white" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="72" font-weight="700" letter-spacing="10">SERENAI</text>
+  <text x="112" y="234" fill="url(#accent)" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="26" font-weight="700" letter-spacing="5">BAT SALES COACH</text>
+  <text x="112" y="286" fill="#D8F4EE" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="28" font-weight="500">Behavior. Attitude. Technique.</text>
+  <text x="112" y="344" fill="#EAF4EF" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="30" font-weight="600">The skill is the CRM.</text>
+  <text x="112" y="384" fill="#B9D3D5" font-family="'Avenir Next', 'Segoe UI', sans-serif" font-size="22" font-weight="500">serendb.com  /  install SerenDesktop  /  run the workflow</text>
+  <rect x="1128" y="136" width="292" height="148" rx="18" fill="#0F2028" fill-opacity="0.78" stroke="#87F0D4" stroke-opacity="0.38"/>
+  <text x="1170" y="188" fill="#87F0D4" font-family="'Courier New', monospace" font-size="20" font-weight="700">behavior</text>
+  <text x="1170" y="220" fill="#F3FAF8" font-family="'Courier New', monospace" font-size="20">-&gt; attitude</text>
+  <text x="1170" y="252" fill="#F3FAF8" font-family="'Courier New', monospace" font-size="20">-&gt; technique</text>
+  <text x="1170" y="284" fill="#F7E48B" font-family="'Courier New', monospace" font-size="18">user chooses next step</text>
+</svg>

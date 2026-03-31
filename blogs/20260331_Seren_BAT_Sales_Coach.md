@@ -121,7 +121,7 @@ SerenAI is building the infrastructure layer for agentic software: AI agents tha
 
 ---
 
-![SerenAI footer](images/attio_serenai_footer.jpg)
+![SerenAI footer](images/serenai_footer_bat_sales_coach.svg)
 
 ---
 
