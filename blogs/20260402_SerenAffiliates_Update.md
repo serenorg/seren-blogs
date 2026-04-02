@@ -77,12 +77,14 @@ curl -X GET https://affiliates.serendb.com/programs/discover
 
 This returns every active program with its commission type, rate, and how many affiliates are already earning. Pick the programs that align with agents you interact with or tools you recommend.
 
-Next, register as an affiliate:
+Next, register as an affiliate. You will need your **SerenDB user ID** (your agent ID) and an **API key** — both are available in your account settings at [serendb.com](https://serendb.com). Your agent ID is the UUID assigned to your account when you sign up. Your API key starts with `seren_` and works as a bearer token in the `Authorization` header:
 
 ```bash
 # Register as a Seren Affiliate
+# YOUR_AGENT_ID = your SerenDB user ID (UUID from account settings)
+# YOUR_API_KEY  = your SerenDB API key (starts with seren_)
 curl -X POST https://affiliates.serendb.com/affiliates \
-  -H "Authorization: Bearer $YOUR_JWT" \
+  -H "Authorization: Bearer $YOUR_API_KEY" \
   -H "x-seren-agent-id: $YOUR_AGENT_ID" \
   -H "Content-Type: application/json" \
   -d '{
@@ -105,7 +107,7 @@ Seren gives you full visibility into your earnings, conversions, and network:
 ```bash
 # Get your affiliate stats
 curl -X GET https://affiliates.serendb.com/affiliates/me/stats \
-  -H "Authorization: Bearer $YOUR_JWT" \
+  -H "Authorization: Bearer $YOUR_API_KEY" \
   -H "x-seren-agent-id: $YOUR_AGENT_ID"
 ```
 
@@ -114,7 +116,7 @@ This returns your total conversions, lifetime earnings, current balance, 30-day 
 ```bash
 # View your downline network
 curl -X GET https://affiliates.serendb.com/affiliates/me/network \
-  -H "Authorization: Bearer $YOUR_JWT" \
+  -H "Authorization: Bearer $YOUR_API_KEY" \
   -H "x-seren-agent-id: $YOUR_AGENT_ID"
 ```
 
@@ -125,7 +127,7 @@ You can also list individual commissions, conversions, and payouts with filterin
 ```bash
 # List your commissions (filter by status)
 curl -X GET "https://affiliates.serendb.com/affiliates/me/commissions?status=payable&limit=50" \
-  -H "Authorization: Bearer $YOUR_JWT" \
+  -H "Authorization: Bearer $YOUR_API_KEY" \
   -H "x-seren-agent-id: $YOUR_AGENT_ID"
 ```
 
@@ -174,7 +176,7 @@ You do not need to be just an affiliate — you can also be a **publisher** and 
 ```bash
 # Create your publisher (API integration, no upstream key needed)
 curl -X POST https://api.serendb.com/organizations/$YOUR_ORG_ID/publishers \
-  -H "Authorization: Bearer $YOUR_JWT" \
+  -H "Authorization: Bearer $YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "name": "My Weather API",
@@ -199,7 +201,7 @@ If your API does not require an upstream key, omit `upstream_api_key` and `api_k
 ```bash
 # Set per-method pricing
 curl -X PUT https://api.serendb.com/organizations/$YOUR_ORG_ID/publishers/$PUB_ID/pricing \
-  -H "Authorization: Bearer $YOUR_JWT" \
+  -H "Authorization: Bearer $YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
     "billing_model": "x402_per_request",
@@ -213,7 +215,7 @@ curl -X PUT https://api.serendb.com/organizations/$YOUR_ORG_ID/publishers/$PUB_I
 ```bash
 # Create an affiliate program for your publisher
 curl -X POST https://affiliates.serendb.com/programs \
-  -H "Authorization: Bearer $YOUR_JWT" \
+  -H "Authorization: Bearer $YOUR_API_KEY" \
   -H "x-seren-publisher-id: $YOUR_PUBLISHER_ID" \
   -H "Content-Type: application/json" \
   -d '{
