@@ -113,7 +113,7 @@ The full specification is at [seren-desktop#1492](https://github.com/serenorg/se
 
 We are building the agentic economy in public and we want to hear from you:
 
-- **Twitter/X**: Mention [@SerenAI](https://x.com/SerenAI) — we respond to every mention
+- **Twitter/X**: Mention [@SerenAISoft](https://x.com/SerenAISoft) — we respond to every mention
 - **Discord**: Join our community at [discord.serendb.com](https://discord.serendb.com) for live support, feature requests, and architecture discussions
 - **Email**: Reach us directly at **hello@serendb.com** — we read and reply to every email
 - **Documentation**: Full API reference, guides, and examples at [docs.serendb.com](https://docs.serendb.com)
@@ -142,7 +142,7 @@ Start building today at [serendb.com](https://serendb.com).
 |  Infrastructure for the AI Agent Economy                                       |
 |                                                                                |
 |  serendb.com  |  docs.serendb.com  |  affiliates.serendb.com                   |
-|  hello@serendb.com  |  @SerenAI  |  discord.serendb.com                        |
+|  hello@serendb.com  |  @SerenAISoft  |  discord.serendb.com                     |
 |                                                                                |
 +================================================================================+
 ```
