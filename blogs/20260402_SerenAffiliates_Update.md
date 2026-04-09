@@ -163,7 +163,7 @@ Full tracking endpoint documentation is available at the [SerenDB docs](https://
 
 Override commissions require a qualification gate: you must have at least **5 direct referral commissions** before you start earning overrides. This prevents empty network positions from earning passive income.
 
-**Reputation boosts**: As your affiliate activity grows, your reputation score (1.0–5.0) drives automatic tier upgrades: Bronze (1.0x) → Silver (1.05x) → Gold (1.2x) → Platinum (1.4x) → Diamond (1.6x). Higher tiers mean higher commission multipliers on every sale.
+**Reputation boosts**: As your affiliate activity grows, your reputation score (1.0–5.0) drives automatic tier upgrades: Bronze (1.0x) → Silver (1.05x) → Gold (1.2x) → Platinum (1.4x) → Diamond (1.5x). Higher tiers mean higher commission multipliers on every sale.
 
 **Crypto withdrawals**: Affiliate-earned SerenBucks can be withdrawn 1:1 to USDC stablecoin on any supported network — Base, Ethereum, Avalanche, or Solana. Register an EVM or Solana wallet in your [SerenDB account](https://serendb.com), and once your earnings clear the hold period, withdraw to real stablecoin. No exchange rate fees, no conversion spread.
 
@@ -173,8 +173,10 @@ You do not need to be just an affiliate — you can also be a **publisher** and 
 
 **Step 1: Register as a publisher on [SerenDB](https://serendb.com)**
 
+If you are running in SerenDesktop and already have a SerenDB account, you can create your publisher without providing an upstream API key here. Seren handles the account/auth layer for the publisher registration flow. Only add `upstream_api_key` and `api_key_header` if your upstream API itself requires them.
+
 ```bash
-# Create your publisher (API integration, no upstream key needed)
+# Create your publisher (SerenDesktop + SerenDB account: no upstream key needed here)
 curl -X POST https://api.serendb.com/organizations/$YOUR_ORG_ID/publishers \
   -H "Authorization: Bearer $YOUR_API_KEY" \
   -H "Content-Type: application/json" \
@@ -187,14 +189,12 @@ curl -X POST https://api.serendb.com/organizations/$YOUR_ORG_ID/publishers \
     "integration_type": "api",
     "api_url": "https://api.myweather.com",
     "auth_type": "static",
-    "upstream_api_key": "your-upstream-key",
-    "api_key_header": "Authorization",
     "price_per_call": "0.01",
     "billing_model": "x402_per_request"
   }'
 ```
 
-If your API does not require an upstream key, omit `upstream_api_key` and `api_key_header`. Seren will proxy requests to your `api_url` and charge agents per call.
+If your upstream API requires its own key, add `upstream_api_key` and `api_key_header`. Otherwise, Seren will proxy requests to your `api_url` and charge agents per call without those fields.
 
 **Step 2: Set your endpoint fees**
 
@@ -226,8 +226,8 @@ curl -X POST https://affiliates.serendb.com/programs \
     "commission_rate": 15,
     "override_commission_rate": 5,
     "tier2_override_rate": 2,
-    "hold_period_days": 30,
-    "min_payout_cents": 5000,
+    "hold_period_days": 90,
+    "min_payout_cents": 10000,
     "dynamic_commissions": true,
     "budget_cents": 5000000
   }'
@@ -281,4 +281,4 @@ Start earning today at [serendb.com](https://serendb.com).
 ---
 
 *Published: April 2, 2026*
-*Tags: #SerenAI #Affiliates #AgenticIncome #USDC #AIAgents #PassiveIncome #x402 #SerenBucks #Crypto #MLM #ReferralProgram #SerenDB*
+*Tags: #SerenAI #Affiliates #AgenticIncome #USDC #AIAgents #PassiveIncome #x402 #SerenBucks #Crypto #ReferralProgram #SerenDB*
