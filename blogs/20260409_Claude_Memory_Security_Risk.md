@@ -23,19 +23,19 @@
 +==================================================================================+
 ```
 
-HN readers tend to dismiss "security issue" claims unless they are concrete and reproducible. So here is the concrete part: Claude Code leaves memory and session artifacts on the local filesystem under `~/.claude/projects/`, and on this machine those artifacts are easy to find and surprisingly rich.
+We learned yesterday that Claude Code leaves memory and session artifacts on the local filesystem under `~/.claude/projects/`, and on your machine those artifacts are easy to find and surprisingly rich.
 
-Claude stores project memory under paths like `~/.claude/projects/*/memory/`. On this machine I found multiple `memory/MEMORY.md` files, including one for `seren-desktop`, and the sample file was mode `-rw-r--r--`, meaning world-readable to local users on the box. It contained operational preferences, release procedures, and references to secret-bearing environment variable names such as `R2_ACCESS_KEY_ID` and `R2_SECRET_ACCESS_KEY`.
+Claude stores project memory under paths like `~/.claude/projects/*/memory/`. On my own machine I found multiple `memory/MEMORY.md` files and many sample files were mode `-rw-r--r--`, meaning world-readable to local users on the box. It contained operational preferences, release procedures, and references to secret-bearing environment variable names such as `ACCESS_KEY_ID` and `SECRET_ACCESS_KEY` for services that I had used for automation.
 
-The less discussed part is the `.jsonl` session history. In the `seren-desktop` Claude project alone, there are 57 `.jsonl` transcript files. Across the broader `~/.claude/projects` tree, the largest retained transcripts on this machine were 30 MB to 41 MB each. Some artifacts date back to **January 8, 2026**, which undercuts any claim that history is aggressively aged out by default.
+The less discussed part is the `.jsonl` session history. Across the broader `~/.claude/projects` tree, the largest retained transcripts on my machine were 30 MB to 41 MB of filesm each. Some artifacts date back to **January of this year**, which undercuts any claim that history is aggressively aged out by default. it appears that artifacts are not pruned. They can grow forever.
 
-Here is what a security engineer should care about.
+Here is what all of us using Claude for development should care about.
 
 ## What Is Actually Exposed?
 
 First, the memory markdown files are plaintext. They can contain role assumptions, behavioral corrections, project conventions, internal links, and operating procedures.
 
-Second, the `.jsonl` transcripts are often worse because they preserve prompts, tool results, current working directories, hook commands, and tool outputs. On this machine, a simple grep across `~/.claude/projects` found references to `API_KEY`, `SECRET`, `PASSWORD`, `PRIVATE_KEY`, `TOKEN`, `Authorization: Bearer`, and PEM/private-key markers. In one retained transcript, a bearer token was embedded directly in a shell command line captured in the log.
+Second, the `.jsonl` transcripts are often worse because they preserve prompts, tool results, current working directories, hook commands, and tool outputs. On my machine, a simple grep across `~/.claude/projects` found references to `API_KEY`, `SECRET`, `PASSWORD`, `PRIVATE_KEY`, `TOKEN`, `Authorization: Bearer`, and PEM/private-key markers. In one retained transcript, a bearer token was embedded directly in a shell command line captured in the log.
 
 Third, there is no real application-layer access control around those files. The only protection is whatever your local filesystem already provides. That matters because same-user compromise is the normal shape of developer workstation attacks.
 
@@ -77,11 +77,9 @@ If you are security-minded, look for three things: plaintext memory, transcript 
         '------------------------------------------------------------'
 ```
 
-## What Seren Desktop Does Better
+## What Seren Desktop from SerenDB Does Better
 
-I checked the `seren-desktop` repo rather than relying on marketing copy. The relevant implementation is in `src-tauri/src/claude_memory.rs`, `src/services/claudeMemory.ts`, and `src/App.tsx`.
-
-The good news is that Seren Desktop has a real interception layer for Claude's auto-memory markdown files. The app:
+The good news is that SerenDB's agent IDE, Seren Desktop, has a real interception layer for Claude's auto-memory markdown files. The app:
 
 - Watches `~/.claude/projects/*/memory/`
 - Parses Claude memory `.md` files
@@ -101,15 +99,15 @@ There is also a credential hygiene improvement. The `seren-desktop` README and c
 
 ## The Important Nuance
 
-Security people will ask the right next question: does this eliminate local plaintext entirely?
+You just asked the right next question: Does this eliminate local plaintext Claude memories entirely?
 
 Not completely.
 
-The checked repo still renders a local `MEMORY.md` from the database so Claude Code can consume it in its expected format. In other words, Seren Desktop makes SerenDB the canonical store, deletes the individual plaintext preference fragments after successful persistence, and reconstructs a single rendered file for compatibility. That is a real reduction in exposure, but it is not the same thing as "no plaintext ever exists locally."
+Even with SerenDesktop, we still have a local copy of `MEMORY.md` from the database so Claude Code can consume it in its expected format. In other words, Seren Desktop makes SerenDB the canonical store, deletes the individual plaintext preference fragments after successful persistence, and reconstructs a single rendered file for compatibility. That is a real reduction in exposure, but it is not the same thing as "no plaintext ever exists locally."
 
 Also, the code I reviewed targets the auto-memory markdown problem. The `.jsonl` transcript retention problem is broader.
 
-So the honest framing is this: Seren Desktop is a real security improvement for Claude memory management because it centralizes canonical state in authenticated SerenDB storage, adds migration and audit structure, reduces local file sprawl, and deletes intercepted source files after successful persistence. But if you want a complete local-artifact hardening story, transcript retention deserves the same treatment next.
+Seren Desktop is a real security improvement for Claude memory management because it centralizes canonical state in authenticated SerenDB storage, adds migration and audit structure, reduces local file sprawl, and deletes intercepted source files after successful persistence. But if you want a complete local-artifact hardening story, transcript retention deserves the same treatment next.
 
 ```text
    Claude writes feedback.md
@@ -128,7 +126,7 @@ So the honest framing is this: Seren Desktop is a real security improvement for 
 
 ## Why This Matters Now
 
-Agent memory is crossing from "developer convenience" into "persistent operator state." Once that happens, flat files stop being harmless.
+Agent memory is crossing from "developer convenience" into "persistent operator state." Once that happens, flat files stop being harmless and start becoming very dangerous.
 
 Memory can reveal how you deploy, what you call important, what you recently fixed, what systems you use, and what your assistant has learned about your workflow. That is useful to red teamers, malware authors, insider threats, and anyone building tailored social engineering payloads.
 
@@ -136,9 +134,9 @@ Security professionals should be pushing AI tools toward database-backed, authen
 
 ## About SerenAI
 
-[SerenAI](https://serendb.com) is building infrastructure for the AI agent economy: secure storage, agent-accessible APIs, hosted workflows, and the database layer behind persistent agent state.
+[SerenAI](https://serendb.com) is building infrastructure for the AI agent economy: Secure storage, agent-accessible APIs and agentic skills, hosted workflows, and the database layer behind persistent agent state.
 
-Seren Desktop is the open source workspace. SerenDB is the persistence layer. Together they let agents keep durable context without treating local plaintext files as the source of truth.
+Seren Desktop is the open source workspace https://github.com/serenorg/seren-desktop. SerenDB is the persistence layer. Together they let agents keep durable context without treating local plaintext files as the source of truth.
 
 If you want Claude-compatible memory handling with a stronger security posture, the pattern is already visible in the repo: authenticate the user, provision dedicated storage, intercept local memory writes, persist them to a canonical database, migrate old artifacts, and stop relying on ad hoc flat files as the long-term memory system.
 
