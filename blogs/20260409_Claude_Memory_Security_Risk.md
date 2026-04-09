@@ -79,7 +79,7 @@ If you are security-minded, look for three things: plaintext memory, transcript 
 
 ## What Seren Desktop from SerenDB Does Better
 
-The good news is that SerenDB's agent IDE, Seren Desktop, has a real interception layer for Claude's auto-memory markdown files. The app:
+The good news is that SerenDB's agent IDE, [Seren Desktop](https://github.com/serenorg/seren-desktop), has a real interception layer for Claude's auto-memory markdown files. The app:
 
 - Watches `~/.claude/projects/*/memory/`
 - Parses Claude memory `.md` files
