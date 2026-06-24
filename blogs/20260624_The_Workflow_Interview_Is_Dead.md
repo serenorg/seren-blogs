@@ -2,24 +2,6 @@
 
 *I record my clients' workflows for a living. Then I built the thing that does it without me. It took two days inside SerenDesktop, and I think I just AI'd myself out of my own job. Again.*
 
-```
-╔══════════════════════════════════════════════════════════════════════════╗
-║                                                                          ║
-║   ⏺ REC   ███████╗███████╗██████╗ ███████╗███╗  ██╗                      ║
-║           ██╔════╝██╔════╝██╔══██╗██╔════╝████╗ ██║                      ║
-║           ███████╗█████╗  ██████╔╝█████╗  ██╔██╗██║  DESKTOP             ║
-║           ╚════██║██╔══╝  ██╔══██╗██╔══╝  ██║╚████║                      ║
-║           ███████║███████╗██║  ██║███████╗██║ ╚███║                      ║
-║           ╚══════╝╚══════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚══╝                      ║
-║                                                                          ║
-║      ┌────────────────────────────────────────────────────────┐        ║
-║      │  🎬 Record your screen.  🎙 Talk to your AI.            │        ║
-║      │  📦 Ship a Seren Skill before your coffee gets cold.    │        ║
-║      └────────────────────────────────────────────────────────┘        ║
-║                                                                          ║
-╚══════════════════════════════════════════════════════════════════════════╝
-```
-
 If your job is to sit across from someone and ask them to explain how they do their work, your job is changing today. I should know. That job is mine.
 
 I'm a Forward Deployed Engineer. The whole game is the interview. You sit with a client, screen shared, and you pull the workflow out of them one click at a time. Which tool, which permission, which exception, which thing-they-do-that-nobody-wrote-down. Do it well and you can automate their day. Do it forty times a week across six industries and you start losing your own mind.
@@ -38,20 +20,6 @@ That buys three things at once:
 2. The Forward Deployed Engineer — me — reviews the recording and the generated skill side by side. I confirm we hit the target without ever booking the call.
 3. The client is happy, and I get my evening back to watch Cape Fear. Wait. Did I just automate myself out of my own job? Again? 😭
 
-```
-╭──────────────────────── THE OLD WAY ────────────────────────╮
-│                                                             │
-│   MON  TUE  WED  THU  FRI        "Can you walk me through    │
-│   ┌─┐  ┌─┐  ┌─┐  ┌─┐  ┌─┐         step 14 one more time?"    │
-│   │▓│  │▓│  │▓│  │▓│  │▓│              ___                   │
-│   │▓│  │▓│  │▓│  │▓│  │▓│             (o o)   Taariq, hour 6 │
-│   └─┘  └─┘  └─┘  └─┘  └─┘            <  -  >                  │
-│   call call call call call           \___/   "...breathe."  │
-│                                                             │
-│   Ceiling: 3–5 interviews/day. Onboards next week: many.    │
-╰─────────────────────────────────────────────────────────────╯
-```
-
 This took us two days to build and it shipped inside SerenDesktop. No waitlist. You can do it tonight, after Cape Fear, on your own subscription. Here's what's actually happening under the hood, because the details are where this stops being a gimmick.
 
 ## What happens when you press record
@@ -59,27 +27,6 @@ This took us two days to build and it shipped inside SerenDesktop. No waitlist. 
 SerenDesktop captures with your operating system's native engine — `screencapture` on macOS, `xcap` on Windows and Linux. You pick the scope: your whole screen, a single app window, or one browser tab. While the video rolls, it's listening to your microphone and tagging the moments that matter — the clicks, the navigations, the places where you stop and explain something out loud. Those become the anchors the AI reasons about later.
 
 When you stop, the audio goes to our seren-whisper service and comes back as a clean, time-aligned transcript. Video, transcript, and the action trace all land together in the composer. That's where the AI drafts the skill: a `SKILL.md` spec, the instructions, the tools the agent needs, and an as-built record of what you actually did and said. You read it. You edit it like any other document. When you're happy, you save it locally or publish it to your team.
-
-```
-╭──────────────────────── THE NEW WAY ────────────────────────╮
-│                                                             │
-│    🧑 "Watch me do the Tuesday packaging report."           │
-│                                                             │
-│   ⏺ screen + window + tab                                   │
-│        │                                                    │
-│        ▼            🎙 voice ──► seren-whisper ──► 📝 transcript
-│   🎬 recording ─────┤                                       │
-│        │            ⌖ action trace (clicks, navigations)    │
-│        ▼                                                    │
-│   ┌──────────────┐     ┌──────────────────────────────┐     │
-│   │  AI composer │ ──► │  SKILL.md  +  tools  +  steps │     │
-│   └──────────────┘     └──────────────────────────────┘     │
-│        │                                                    │
-│        ▼                                                    │
-│   🔒 redaction gate ──► 📦 publish: private · team · paid   │
-│                                                             │
-╰─────────────────────────────────────────────────────────────╯
-```
 
 Two boring details make this safe enough to put in front of a real company.
 
@@ -95,21 +42,6 @@ Every conversation you have inside SerenDesktop feeds a local memory layer — S
 
 And when the AI needs to reach outside — look something up, hit a marketplace publisher, verify an API — every one of those tool calls runs through the MCP gateway and stops at an approval prompt. You see what it wants to do before it does it. No agent burns a token, sends a message, or moves a dollar without your explicit yes.
 
-```
-╭───────────────────────── THE REVIEW ────────────────────────╮
-│                                                             │
-│   ┌─────────────────────┐   ┌───────────────────────────┐   │
-│   │  ▶ recording.mov    │   │  SKILL.md                 │   │
-│   │  🎙 "...then I tag   │   │  name: tuesday-pk-report  │   │
-│   │     the PK leads..." │   │  steps: 7   tools: 3      │   │
-│   │  ⌖ 00:14 click       │   │  ✅ matches the recording │   │
-│   └─────────────────────┘   └───────────────────────────┘   │
-│                                                             │
-│        🧑 FDE: "Target hit. Never booked the call."         │
-│                                                             │
-╰─────────────────────────────────────────────────────────────╯
-```
-
 When the skill is done, you publish it. Privately to your team. Publicly to the Seren marketplace. Paid, if you want to charge for it. Anyone running SerenDesktop installs it the same way they install any other skill — including the FDE reviewing it the next morning.
 
 ## So who's actually out of a job
@@ -118,20 +50,9 @@ The client gets a Loom-style flow that ends in working software instead of a twe
 
 And me? Theoretically, I get my evenings back. Robert De Niro is chewing scenery for two hours and I am not on a call. The workflow interview that defined my job is dead, and I'm the one who shot it. I'm fine with that. The next job — designing which workflows are worth recording at all — is the one humans keep.
 
-Your boss is recording theirs today. Don't be the last one still booking the meeting.
+SerenDesktop is the open-source client. Your subscription, your API key, or a local model in LM Studio — your call. The skills are yours. The evenings are too. Your boss is recording theirs today. Don't be the last one still booking the meeting.
 
-```
-╔══════════════════════════════════════════════════════════════════════════╗
-║                                                                          ║
-║     ⏺ RECORD  ──►  🎙 TALK  ──►  📦 SHIP A SKILL                         ║
-║                                                                          ║
-║     SerenDesktop · your subscription, your API key, or local LM Studio   ║
-║     Open source client. The skills are yours. The evenings are too.      ║
-║                                                                          ║
-║                    👉  Download in the comments.                         ║
-║                                                                          ║
-╚══════════════════════════════════════════════════════════════════════════╝
-```
+The download link is in the comments.
 
 Taariq Lewis
 CEO, SerenAI
