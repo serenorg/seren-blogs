@@ -34,9 +34,9 @@ Two boring details make this safe enough to put in front of a real company.
 
 **Bring your own brain.** SerenDesktop does not sit between you and your model. Talk to Claude and it spawns the Claude Code CLI on your machine as a child process and streams the conversation straight to Anthropic over its native stream-json protocol, on your subscription or your API key. Same shape for Codex. Same for Gemini. Run LM Studio and an open-weights model on your own laptop does the work — nothing leaves your hardware at all. We ship a sandboxed Node runtime for every platform so none of this depends on whether your system Node is healthy. Mac silicon, Mac Intel, Windows, Linux. It just runs.
 
-## The part that compounds
+## The second recording is faster than the first
 
-Here's where recording-as-a-feature turns into something a "just use Loom" answer can't touch.
+This is where "just use Loom" falls apart.
 
 Every conversation you have inside SerenDesktop feeds a local memory layer — SQLite with vector search, on your machine. Come back tomorrow to record skill number two, and the AI already remembers what you built yesterday. It remembers your role, the tools you've shown it, the compliance rule you explained, the half-finished workflow you said you'd return to. So your second skill is faster than your first, and your tenth is faster than your second. Forward Deployed work has always been about reusing one client's context. The memory layer does that without making you re-explain your own company.
 
@@ -46,7 +46,7 @@ When the skill is done, you publish it. Privately to your team. Publicly to the 
 
 ## So who's actually out of a job
 
-The client gets a Loom-style flow that ends in working software instead of a twelve-minute video rotting in someone's queue. The FDE gets review fidelity we have never had: the recording and the skill artifact in one view, action trace lined up underneath. The AI gets context that compounds across every recording.
+The client gets a Loom-style flow that ends in working software instead of a twelve-minute video rotting in someone's queue. The FDE gets review fidelity we have never had: the recording and the skill artifact in one view, action trace lined up underneath. And every recording teaches the AI more about how the place actually works, so the next one is faster instead of slower.
 
 And me? Theoretically, I get my evenings back. Robert De Niro is chewing scenery for two hours and I am not on a call. The workflow interview that defined my job is dead, and I'm the one who shot it. I'm fine with that. The next job — designing which workflows are worth recording at all — is the one humans keep.
 
