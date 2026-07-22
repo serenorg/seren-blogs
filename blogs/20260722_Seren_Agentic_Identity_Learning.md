@@ -2,7 +2,7 @@
 
 ## Introduction: The Identity Problem
 
-Agentic identity is a problem for all enterprise deployments of AI agents because there's simply no standard. We're in the wild, wild west where every provider has a different approach. There are so many degrees of freedom. You can deploy AI that automates business workflows with varying degrees of access and with any — or no — identity. As we jump in with partners to provide forward deployed engineering support to their AI deployments, we are learning: everyone has a different approach. Some agentic platforms let you choose your agentic identity design.
+If you're the Chief Information Security Officer, the Chief Information Officer, or even the Chief Executive Officer, you want to read this: agentic identity is a problem for all enterprise deployments of AI agents because there's simply no standard. We're in the wild, wild west where every provider has a different approach. There are so many degrees of freedom. You can deploy AI that automates business workflows with varying degrees of access and with any — or no — identity. As we jump in with partners to provide forward deployed engineering support to their AI deployments, we are learning: everyone has a different approach. Some agentic platforms let you choose your agentic identity design.
 
 ## Reason 1: OAuth vs. DwD — Risks and Control
 
@@ -16,9 +16,11 @@ With OAuth, any agent can log in and control access to their data. We think it's
 
 Google identity is cheap. The Google Workspace users are already built and known. You can create and destroy as needed. No need to pay anyone to create an identity for your agent. Just create a Google user and let your LLMs take over. Building a company brain? Now your agent employee can contribute to that brain with an identity and with all their files.
 
+Do we know the costs for Google OAuth and Google identity? Yes: $14 a month per user. Do we know the costs of managing a new domain-wide delegation setup? No. That's unbounded, and it requires ongoing monitoring and maintenance.
+
 ## Reason 3: New Security Model? Ain't Nobody Got Time for That!
 
-We don't have time to invent new security and identity models for agents. The pace of automation rewards deployment speed. LLMs are error-prone and probabilistic token predictors. Time is now invested in evaluation, correction, and quality control against errors and hallucinations. This is where the rewards will be, not in creating new identity and security models for agents. That's the tradeoff.
+We don't have time to invent new security and identity models for agents. We also don't have the budget to risk testing a new security model for agents. Who pays when the agents act in a security framework that we don't understand, or one that is only a few months old? The pace of automation rewards deployment speed. LLMs are error-prone and probabilistic token predictors. Time is now invested in evaluation, correction, and quality control against errors and hallucinations. This is where the rewards will be, not in creating new identity and security models for agents. That's the tradeoff.
 
 ## Get Your AI Employees Set Up
 
