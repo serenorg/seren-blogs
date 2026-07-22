@@ -34,7 +34,7 @@ There were a host of maintenance fixes in SerenDesktop that included focus on th
 
 SerenDesktop is the open-source LLM development harness for knowledge workers. You can use SerenDesktop with your LLM subscription, your API keys, or even a local model in LM Studio. All the skills you create in Seren are yours and can be shared publicly or kept private. Our objective is to speed up the creation and management of LLM automation agents that not only unlock faster and deeper work paths, but also more free time to enjoy what's most important: Watching the next episode of Cape Fear.
 
-**Download SerenDesktop v3.60.0:** [serendb.com](https://serendb.com)
+**Download SerenDesktop v3.60.0:** [serendb.com](https://serendb.com/download)
 
 Taariq Lewis
 CEO, Seren
