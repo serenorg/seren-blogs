@@ -4,7 +4,7 @@ In the age of AI how do agentic engineers estimate their ability to deliver on e
 
 I don't think it is actually possible, anymore, but engineers are shipping more code! What a time to be alive.
 
-In the old days, engineers and their managers would estimate engineering effort based on human intelligence, human experience completing tasks of similar scope, as well as the maturity of the codebase. Humans knew what they were working on because they had to read the code. Even then, those engineering estimates were often wrong and usually we had to read books like "The Mythical Man Month" to build disciplines in software development effort estimates. I recently laughed watching Alberta's from Tech "What tech meeting feels like" on Youtube: https://www.youtube.com/watch?v=gnf2TRXi5iw. Those days seem quaint now. Do we still use story points when building with AI? Do we ask the LLM for story points?
+In the old days, engineers and their managers would estimate engineering effort based on human intelligence, human experience completing tasks of similar scope, as well as the maturity of the codebase. Humans knew what they were working on because they had to read the code. Even then, those engineering estimates were often wrong and usually we had to read books like "The Mythical Man Month" to build disciplines in software development effort estimates. I recently laughed watching Alberta's from Tech ["What tech meeting feels like"](https://www.youtube.com/watch?v=gnf2TRXi5iw). Those days seem quaint now. Do we still use story points when building with AI? Do we ask the LLM for its own story points?
 
 Now today what happens when we ask an LLM: "How long will this feature take?" 
 We get two things:
